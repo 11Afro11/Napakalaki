@@ -38,6 +38,34 @@ public class BadConsequence {
         specificHiddenTreasure = tHidden;
     }
     
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public void setLevels(int levels) {
+        this.levels = levels;
+    }
+
+    public void setnVisibleTreasures(int nVisibleTreasures) {
+        this.nVisibleTreasures = nVisibleTreasures;
+    }
+
+    public void setnHiddenTeasures(int nHiddenTeasures) {
+        this.nHiddenTeasures = nHiddenTeasures;
+    }
+
+    public void setDeath(boolean death) {
+        this.death = death;
+    }
+
+    public void setSpecificHiddenTreasure(ArrayList<TreasureKind> specificHiddenTreasure) {
+        this.specificHiddenTreasure = specificHiddenTreasure;
+    }
+
+    public void setSpecificVisibleTreasure(ArrayList<TreasureKind> specificVisibleTreasure) {
+        this.specificVisibleTreasure = specificVisibleTreasure;
+    }
+       
     String getText(){
         return text;
     }
@@ -61,4 +89,6 @@ public class BadConsequence {
     public String toString(){
         return text +"levels="+ Integer.toString(levels)+"Visible="+Integer.toString(nVisibleTreasures)+"Hidden="+Integer.toString(nHiddenTeasures);
     } 
+
+    
 }

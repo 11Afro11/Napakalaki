@@ -17,6 +17,15 @@ public class Prize {
         this.treasures = treasures;
         this.levels = levels;
     }
+
+    public void setTreasures(int treasures) {
+        this.treasures = treasures;
+    }
+
+    public void setLevels(int levels) {
+        this.levels = levels;
+    }
+    
     
     int getTreasures(){
         return treasures;

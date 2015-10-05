@@ -26,6 +26,22 @@ public class Monster {
         this.price = price;
         this.bc = bc;
     }
+    
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCombatLevel(int combatLevel) {
+        this.combatLevel = combatLevel;
+    }
+
+    public void setPrice(Prize price) {
+        this.price = price;
+    }
+
+    public void setBc(BadConsequence bc) {
+        this.bc = bc;
+    }
 
     public String getName() {
         return name;
@@ -38,5 +54,7 @@ public class Monster {
     public String toString(){
         return "Nombre = " +name+"Combat level="+ Integer.toString(combatLevel)+"Precio="+price+"Consecuence="+bc;
     } 
+
+    
     
 }
