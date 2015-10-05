@@ -58,5 +58,7 @@ public class BadConsequence {
         return death;
     }
     
-    
+    public String toString(){
+        return text +"levels="+ Integer.toString(levels)+"Visible="+Integer.toString(nVisibleTreasures)+"Hidden="+Integer.toString(nHiddenTeasures);
+    } 
 }
