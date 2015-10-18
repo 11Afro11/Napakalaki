@@ -20,13 +20,55 @@ public class PruebaNapakalaki {
         //bonanza
         BadConsequence badConsequence = new BadConsequence("Pierdes tu armadura visible y otra oculta", 0, new ArrayList(Arrays.asList(TreasureKind.ARMOR)), new ArrayList(Arrays.asList(TreasureKind.ARMOR)));
         Prize prize = new Prize(2, 1);
-        
         monstruos.add(new Monster("Byakhees de bonanza", 8, prize, badConsequence));
-        //Chibichulo
-        badConsequence = new BadConsequence("Embobados con ellindo primigenio te descartas tu casco visible", 0, new ArrayList(Arrays.asList(TreasureKind.HELMET)), new ArrayList(Arrays.asList()));
-        prize = new Prize(1, 1);
         
+        //Chibichulo
+        badConsequence = new BadConsequence("Embobados con ellindo primigenio te descartas tu casco visible", 0, new ArrayList(Arrays.asList(TreasureKind.HELMET)), new ArrayList(Arrays.asList(null)));
+        prize = new Prize(1, 1);        
         monstruos.add(new Monster("Chibithulhu", 2, prize, badConsequence));
+        
+        //Dunwich
+        badConsequence = new BadConsequence("El primordial bostezo contagioso. Pierdes el calzado visible", 0, new ArrayList(Arrays.asList(TreasureKind.SHOES)), new ArrayList(Arrays.asList(null)));
+        prize = new Prize(1, 1);        
+        monstruos.add(new Monster("El sopor de Dunwitch", 2, prize, badConsequence));
+        
+        //Angeles de la noche ibicenca
+        badConsequence = new BadConsequence("Te atrapan para llevarte a una fiesta y te dejan caer en mitad del vuelo. Descarta una mano visible y una mano oculta", 0, new ArrayList(Arrays.asList(TreasureKind.ONEHAND)), new ArrayList(Arrays.asList(null)));
+        prize = new Prize(3, 1);        
+        monstruos.add(new Monster("Ángeles de la noche ibicenca", 14, prize, badConsequence));
+        
+        //El gorron en el umbral      Pendiente de revision
+        badConsequence = new BadConsequence("Pierdes todos tus tesoros visibles", 0, new ArrayList(Arrays.asList(TreasureKind.BOTHHANDS)), new ArrayList(Arrays.asList(TreasureKind.BOTHHANDS)));
+        prize = new Prize(3, 1);
+        monstruos.add(new Monster("El gorrón en el umbral", 10, prize, badConsequence));
+        
+        //munchcraft
+        badConsequence = new BadConsequence("Pierdes la armadura visible", 0, new ArrayList(Arrays.asList(TreasureKind.ARMOR)), new ArrayList(Arrays.asList(null)));
+        prize = new Prize(2, 1);
+        monstruos.add(new Monster("H.P. Munchcraft", 6, prize, badConsequence));
+        
+        //bichgooth
+        badConsequence = new BadConsequence("Sientes bichos bajo la ropa. Descarta la armadura visible", 0, new ArrayList(Arrays.asList(TreasureKind.ARMOR)), new ArrayList(Arrays.asList(null)));
+        prize = new Prize(1, 1);
+        monstruos.add(new Monster("Bichgooth", 2, prize, badConsequence));
+        
+        //Rey de rosa
+        badConsequence = new BadConsequence("Pierdes 5 niveles y 3 tesoros visibles", 5, 3, 0);
+        prize = new Prize(4, 2);
+        monstruos.add(new Monster("El rey de rosa", 13, prize, badConsequence));
+        
+        //La que redacta las tinieblas
+        badConsequence = new BadConsequence("Toses los pulmones y pierdes 2 niveles", 2, 0, 0);
+        prize = new Prize(1, 1);
+        monstruos.add(new Monster("La que redacta en las tinieblas", 2, prize, badConsequence));
+        
+        //Bicefalo
+        badConsequence = new BadConsequence("Te faltan manos para tanta cabeza. Pierdes 3 niveles y tus tesoros visibles de las manos", 3, new ArrayList(Arrays.asList(TreasureKind.BOTHHANDS)), new ArrayList(Arrays.asList(null)));
+        prize = new Prize(1, 1);
+        monstruos.add(new Monster("Bicéfalo", 20, prize, badConsequence));
+        
+        
+        
         
         
         
