@@ -112,7 +112,33 @@ public class PruebaNapakalaki {
         prize = new Prize(1, 1);
         monstruos.add(new Monster("El Lenguas", 20, prize, badConsequence));
         
+        System.out.println("Monstruos con niveles superioes a 10: \n\n");
+        for(Monster m : monstruos){
+            if(m.getCombatLevel() == 10){
+                m.muestraMonstruo();
+            }
+        }
         
+        System.out.println("Monstruos mal rollo de perdida de niveles: \n\n");
+        for(Monster m : monstruos){
+            if(m.getBc().getLevels() > 0){
+                m.muestraMonstruo();
+            }
+        }
+        
+        System.out.println("Monstruos buen rollo superior a 1 nivel: \n\n");
+        for(Monster m : monstruos){
+            if(m.getPrice().getLevels() > 1){
+                m.muestraMonstruo();
+            }
+        }
+        
+        System.out.println("Monstruos mal rollo perdida de tesoros: \n\n");
+        for(Monster m : monstruos){
+            if(m.getBc().getHiddenTreasures() != 0 || m.getBc().getVisibleTreasures() != 0){
+                m.muestraMonstruo();
+            }
+        }
         
         
         

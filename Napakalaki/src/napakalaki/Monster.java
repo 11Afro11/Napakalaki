@@ -55,6 +55,20 @@ public class Monster {
         return "Nombre = " +name+"Combat level="+ Integer.toString(combatLevel)+"Precio="+price+"Consecuence="+bc;
     } 
 
-    
+    public Prize getPrice() {
+        return price;
+    }
+
+    public BadConsequence getBc() {
+        return bc;
+    }
+
+    public void muestraMonstruo(){
+        System.out.println("\n\n**************************************\n\n");
+        System.out.println("Monstruo: "+ name + "\n");
+        System.out.println("Nivel: "+ combatLevel + "\n");
+        System.out.println("Precio: "+ price.getLevels() + " niveles" + price.getTreasures() + " tesoros" + "\n");
+        System.out.println("Mal Rollo: " + bc.getText());
+    }
     
 }
