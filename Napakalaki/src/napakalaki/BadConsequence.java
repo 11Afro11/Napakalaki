@@ -38,6 +38,12 @@ public class BadConsequence {
         specificHiddenTreasure = tHidden;
     }
     
+    BadConsequence(String text, int levels, ArrayList<TreasureKind> tVisible){
+        this.text = text;
+        this.levels = levels;
+        specificVisibleTreasure = tVisible;
+    }
+    
     public void setText(String text) {
         this.text = text;
     }

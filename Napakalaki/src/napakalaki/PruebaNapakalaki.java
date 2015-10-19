@@ -23,17 +23,17 @@ public class PruebaNapakalaki {
         monstruos.add(new Monster("Byakhees de bonanza", 8, prize, badConsequence));
         
         //Chibichulo
-        badConsequence = new BadConsequence("Embobados con ellindo primigenio te descartas tu casco visible", 0, new ArrayList(Arrays.asList(TreasureKind.HELMET)), new ArrayList(Arrays.asList(null)));
+        badConsequence = new BadConsequence("Embobados con ellindo primigenio te descartas tu casco visible", 0, new ArrayList(Arrays.asList(TreasureKind.HELMET)));
         prize = new Prize(1, 1);        
         monstruos.add(new Monster("Chibithulhu", 2, prize, badConsequence));
         
         //Dunwich
-        badConsequence = new BadConsequence("El primordial bostezo contagioso. Pierdes el calzado visible", 0, new ArrayList(Arrays.asList(TreasureKind.SHOES)), new ArrayList(Arrays.asList(null)));
+        badConsequence = new BadConsequence("El primordial bostezo contagioso. Pierdes el calzado visible", 0, new ArrayList(Arrays.asList(TreasureKind.SHOES)));
         prize = new Prize(1, 1);        
         monstruos.add(new Monster("El sopor de Dunwitch", 2, prize, badConsequence));
         
         //Angeles de la noche ibicenca
-        badConsequence = new BadConsequence("Te atrapan para llevarte a una fiesta y te dejan caer en mitad del vuelo. Descarta una mano visible y una mano oculta", 0, new ArrayList(Arrays.asList(TreasureKind.ONEHAND)), new ArrayList(Arrays.asList(null)));
+        badConsequence = new BadConsequence("Te atrapan para llevarte a una fiesta y te dejan caer en mitad del vuelo. Descarta una mano visible y una mano oculta", 0, new ArrayList(Arrays.asList(TreasureKind.ONEHAND)));
         prize = new Prize(3, 1);        
         monstruos.add(new Monster("Ángeles de la noche ibicenca", 14, prize, badConsequence));
         
@@ -43,12 +43,12 @@ public class PruebaNapakalaki {
         monstruos.add(new Monster("El gorrón en el umbral", 10, prize, badConsequence));
         
         //munchcraft
-        badConsequence = new BadConsequence("Pierdes la armadura visible", 0, new ArrayList(Arrays.asList(TreasureKind.ARMOR)), new ArrayList(Arrays.asList(null)));
+        badConsequence = new BadConsequence("Pierdes la armadura visible", 0, new ArrayList(Arrays.asList(TreasureKind.ARMOR)));
         prize = new Prize(2, 1);
         monstruos.add(new Monster("H.P. Munchcraft", 6, prize, badConsequence));
         
         //bichgooth
-        badConsequence = new BadConsequence("Sientes bichos bajo la ropa. Descarta la armadura visible", 0, new ArrayList(Arrays.asList(TreasureKind.ARMOR)), new ArrayList(Arrays.asList(null)));
+        badConsequence = new BadConsequence("Sientes bichos bajo la ropa. Descarta la armadura visible", 0, new ArrayList(Arrays.asList(TreasureKind.ARMOR)));
         prize = new Prize(1, 1);
         monstruos.add(new Monster("Bichgooth", 2, prize, badConsequence));
         
@@ -63,7 +63,7 @@ public class PruebaNapakalaki {
         monstruos.add(new Monster("La que redacta en las tinieblas", 2, prize, badConsequence));
         
         //Bicefalo
-        badConsequence = new BadConsequence("Te faltan manos para tanta cabeza. Pierdes 3 niveles y tus tesoros visibles de las manos", 3, new ArrayList(Arrays.asList(TreasureKind.BOTHHANDS)), new ArrayList(Arrays.asList(null)));
+        badConsequence = new BadConsequence("Te faltan manos para tanta cabeza. Pierdes 3 niveles y tus tesoros visibles de las manos", 3, new ArrayList(Arrays.asList(TreasureKind.BOTHHANDS)));
         prize = new Prize(1, 1);
         monstruos.add(new Monster("Bicéfalo", 20, prize, badConsequence));
         
@@ -103,7 +103,7 @@ public class PruebaNapakalaki {
         monstruos.add(new Monster("Roboggoth", 8, prize, badConsequence));
         
         //El Espia
-        badConsequence = new BadConsequence("Te asusta en la noche. Pierdes un casco visible", 0, new ArrayList(Arrays.asList(TreasureKind.HELMET)), new ArrayList(Arrays.asList(null)));
+        badConsequence = new BadConsequence("Te asusta en la noche. Pierdes un casco visible", 0, new ArrayList(Arrays.asList(TreasureKind.HELMET)));
         prize = new Prize(1, 1);
         monstruos.add(new Monster("El espia", 5, prize, badConsequence));
         
