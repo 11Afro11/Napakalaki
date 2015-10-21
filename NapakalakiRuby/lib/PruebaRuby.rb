@@ -37,7 +37,7 @@ badConsequence = BadConsequence.newLevelNumberOfTreasures('Pierdes 5 niveles y 3
 monsters << Monster.new('El rey de rosa',13,prize,badConsequence)
 
 prize = Prize.new(1,1)
-badConsequence = BadConsequence.newLevelNumberOfTreasures("Toses los pulmones y pierdes 2 niveles")
+badConsequence = BadConsequence.newLevelNumberOfTreasures("Toses los pulmones y pierdes 2 niveles",2, 0, 0)
 monsters<< Monster.new("La que redacta las tinieblas",2, prize, badConsequence)
 
 prize = Prize.new(1,1)
