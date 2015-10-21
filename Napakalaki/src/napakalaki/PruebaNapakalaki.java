@@ -78,7 +78,7 @@ public class PruebaNapakalaki {
         monstruos.add(new Monster("Ángeles de la noche ibicenca", 14, prize, badConsequence));
         
         //El gorron en el umbral      Pendiente de revision
-        badConsequence = new BadConsequence("Pierdes todos tus tesoros visibles", 0, new ArrayList(Arrays.asList(TreasureKind.BOTHHANDS)), new ArrayList(Arrays.asList(TreasureKind.BOTHHANDS)));
+        badConsequence = new BadConsequence("Pierdes todos tus tesoros visibles", 0, 5, 0);
         prize = new Prize(3, 1);
         monstruos.add(new Monster("El gorrón en el umbral", 10, prize, badConsequence));
         
