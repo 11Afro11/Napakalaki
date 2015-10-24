@@ -2,6 +2,48 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
+
+def level10(monsters)
+  monstruos = Array.new
+  for m in monsters
+    if m.getCombatLevel() == 10
+      monstruos << m
+    end
+  end  
+  return monstruos
+end
+
+
+def lostLevel(monsters)
+  monstruos = Array.new
+  for m in monsters
+    if m.getBadConsequencel().getLevel() > 0
+      monstruos << m
+    end
+  end  
+  return monstruos
+end
+
+def goodLevel(monsters)
+  monstruos = Array.new
+  for m in monsters
+    if m.getPrize().getLevels() > 0
+      monstruos << m
+    end
+  end  
+  return monstruos
+end
+
+def lostTreasures(monsters)
+  monstruos = Array.new
+  for m in monsters
+    if m.getBadConsequencel().getnVisibleTreasures() > 0 || m.getBadConsequence().getnHiddenTreasures() > 0
+      monstruos << m
+    end
+  end  
+  return monstruos
+end
+
 monsters = Array.new
 
 prize = Prize.new(2, 1)
@@ -21,7 +63,7 @@ badConsequence = BadConsequence.newLevelSpecificTreasures("Te atrapan para lleva
 monsters<< Monster.new("Ángeles de la noche ibicenca", 14, prize, badConsequence)
 
 prize = Prize.new(3,1)
-badConsequence = bas_consequence.newLevelNumbreOfTreasures("Pierdes todos los tesoros visibles", 0,5,0)
+badConsequence = BadConsequence.newLevelNumbreOfTreasures("Pierdes todos los tesoros visibles", 0,5,0)
 monsters<< Monster.new("El gorrón en el umbral", 10, prize, badConsequence)
 
 prize = Prize.new(2,1)
@@ -90,3 +132,13 @@ badConsequence = BadConsequence.newLevelOfTreasures("Menudo susto te llevas. Pie
 monsters<< Monster.new("El Lenguas", 20, price, badConsequence)
 
 
+listaMonstruos = Array.new
+
+listaMonstruos = level10(monsters)
+puts listaMonstruos
+listaMonstruos = lostLevel(monsters)
+puts listaMonstruos
+listaMonstruos = goodLevel(monsters)
+puts listaMonstruos
+listaMonstruos = lostTreasures(monsters)
+puts listaMonstruos

@@ -3,21 +3,14 @@
 # and open the template in the editor.
 
 class BadConsequence
-  def initialize(text, levels, nVisibleTreasures, nHiddenTreasures)
-    @text = text
-    @levels = levels
-    @nhiddenTreasures = nHiddenTreasures
-    @nVisibleTreasures = nVisibleTreasures    
-  end
-  def initialize(text)
-    @text = text
-    @death = true
-  end
-  def initialize(text, levels, tVisible, tHidden)
-    @text = text
-    @levels = levels
-    @tVisible = tVisible
-    @tHidden = tHidden
+  def initialize(aText, someLevels, someVisibleTreasures, someHiddenTreasures, someSpecificVisibleTreasures, someSpecificHiddenTreasures, death) 
+    @text = aText
+    @levels = someLevels
+    @nVisibleTreasures = someVisibleTreasures
+    @nHiddenTreasures = someHiddenTreasures
+    @tVisibleTreasures = someSpecificVisibleTreasures
+    @tHiddenTreasures = someSpecificHiddenTreasures
+    @death = death
   end
   
   def getText
@@ -49,7 +42,22 @@ class BadConsequence
   end
   
   def to_s
-    
+    puts "#{text}"
   end
+  
+  private_class_method :new
+  
+  def self.LevelNumberOfTreasures(text, someLevels, someVisibleTreasures, someHiddenTreasures)
+    initialize(text, someLevels, someVisibleTreasures, someHiddenTreasures, Array.new(), Array.new(), false)
+  end
+  
+  def self.LevelSpecificTreasures(text, someLevels, someSpecificVisibleTreasures, someSpecificHiddenTreasures)
+    initialize(text, someLevels, 0, 0, someSpecificVisibleTreasures, someSpecificHiddenTreasures, false)
+  end
+  
+  def self.Death(text)
+    initialize(text, 0, 0, 0, Array.new(), Array.new(), true)
+  end
+  
   
 end

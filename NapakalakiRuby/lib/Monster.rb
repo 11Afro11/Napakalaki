@@ -31,4 +31,8 @@ class Monster
     @bc
   end
   
+  def to_s
+    puts "Nombre: #{name} Nivel: #{combatLevel} Precio: #{prize} Bad Consequence: #{bc}"
+  end
+  
 end
