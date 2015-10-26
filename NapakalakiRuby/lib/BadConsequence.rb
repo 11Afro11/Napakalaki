@@ -58,7 +58,7 @@ module NapakalakiGame
     end
     
     def to_s
-      puts "#{text}"
+      "#{@text}"
     end 
     
   end

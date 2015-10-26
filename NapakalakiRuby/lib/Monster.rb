@@ -29,7 +29,7 @@ module NapakalakiGame
     end
     
     def to_s
-      puts "Nombre: #{name} Nivel: #{combatLevel} Precio: #{prize} Bad Consequence: #{bc}"
+      "Nombre: #{@name} Nivel: #{@combatLevel} Precio: #{@prize} Bad Consequence: #{@bc}"
     end
     
   end

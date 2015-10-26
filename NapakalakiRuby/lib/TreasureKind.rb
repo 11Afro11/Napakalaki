@@ -10,4 +10,4 @@ module NapakalakiGame
 	  HELMET =:helmet
 	  SHOES =:shoes
 	end
-end
+end 
