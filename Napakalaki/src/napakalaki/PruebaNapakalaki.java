@@ -12,7 +12,7 @@ import java.util.Arrays;
  */
 public class PruebaNapakalaki {
     /**
-     * @param args the command line arguments
+     * @paramargs the command line arguments
      */
     static ArrayList<Monster> level10(ArrayList<Monster> monstruo){
         ArrayList<Monster> level10= new ArrayList(); 
