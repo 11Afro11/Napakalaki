@@ -4,7 +4,7 @@
 # and open the template in the editor.
 module NapakalakiGame
   class BadConsequence
-    attr_reader :text, :levels, :nVisibleTreasures, :nHiddenTreasures, :death, :tVisibleTreasures, :tHiddenTreasures
+    attr_accessor :text, :levels, :nVisibleTreasures, :nHiddenTreasures, :death, :tVisibleTreasures, :tHiddenTreasures
     def initialize(aText, someLevels = 0, someVisibleTreasures= 0, someHiddenTreasures = 0, someSpecificVisibleTreasures = Array.new, someSpecificHiddenTreasures = Array.new, deth = false) 
       @text = aText
       @levels = someLevels

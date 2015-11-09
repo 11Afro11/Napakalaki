@@ -4,7 +4,7 @@
 # and open the template in the editor.
 module NapakalakiGame
   class Monster
-    attr_reader :name, :combatLevel, :prize, :bc
+    attr_accessor :name, :combatLevel, :prize, :bc
     def initialize(name, combatLevel, prize, bc)
       @name = name
       @combatLevel = combatLevel

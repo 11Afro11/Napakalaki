@@ -151,6 +151,5 @@ module NapakalakiGame
         listaMonstruos = lostTreasures(monsters)
         puts "Monstruos con perdida de tesoros:\n"
         puts listaMonstruos
-
     end
 end
