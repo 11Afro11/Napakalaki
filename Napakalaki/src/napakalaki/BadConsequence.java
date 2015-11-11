@@ -86,6 +86,13 @@ public class BadConsequence {
         return death;
     }
     
+    boolean isEmpty(){
+        if(nHiddenTeasures == 0 && nVisibleTreasures == 0 && specificHiddenTreasure.isEmpty() && specificVisibleTreasure.isEmpty()){
+            return true;
+        }
+        return false;
+    }
+    
     public String toString(){
         return text +"levels="+ Integer.toString(levels)+"Visible="+Integer.toString(nVisibleTreasures)+"Hidden="+Integer.toString(nHiddenTeasures);
     } 
