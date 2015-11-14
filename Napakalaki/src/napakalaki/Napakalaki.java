@@ -17,7 +17,7 @@ public class Napakalaki {
 
 	}
 
-	private void initPlayers(string names){
+	private void initPlayers(String[] names){
 
 	}
 
@@ -56,7 +56,7 @@ public class Napakalaki {
 		
 	}
 
-	public void initGame(string players){
+	public void initGame(String[] players){
 		
 	}
 
