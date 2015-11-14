@@ -168,7 +168,7 @@ public class CardDealer {
             Collections.shuffle(this.unusedMonster);
 	}
 
-	private CardDealer getInstance(){
+	public CardDealer getInstance(){
 		if(instance == null){
 			instance = new CardDealer();
 		}
