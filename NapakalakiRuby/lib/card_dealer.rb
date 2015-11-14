@@ -7,9 +7,12 @@ module Napakalaki
 
 	class CardDealer
 		include Singleton
-
+    
+    attr_accesor :used_monsters, :unused_monsters, :used_treasures, :unused_treasures
+    
 		def initTreasureCardDeck
-
+      @unused_treasures = Array.new
+      @used_treasures = Array.new
 		end
 
 		def initMonsterCardDeck
