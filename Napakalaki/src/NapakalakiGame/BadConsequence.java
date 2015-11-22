@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package napakalaki;
+package NapakalakiGame;
 import java.util.ArrayList;
 /**
  *
@@ -91,6 +91,14 @@ public class BadConsequence {
             return true;
         }
         return false;
+    }
+    
+    void substractVisibleTreasure(Treasure t){
+        this.specificVisibleTreasure.remove(t.getType());
+    }
+    
+    void substractHiddenTreasure(Treasure t){
+        this.specificHiddenTreasure.remove(t.getType());
     }
     
     public String toString(){

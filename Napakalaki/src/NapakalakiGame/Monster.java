@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package napakalaki;
+package NapakalakiGame;
 
 /**
  *
@@ -15,7 +15,7 @@ public class Monster {
     private Prize price;
     private BadConsequence bc;
     
-    public Monster(String name, int combatLevel) {
+    public Monster(String name, int combatLevel){
         this.name = name;
         this.combatLevel = combatLevel;
     }
@@ -62,5 +62,13 @@ public class Monster {
 
     public BadConsequence getBc() {
         return bc;
-    }    
+    } 
+    
+    public int getLevelsGained(){
+        return price.getLevels();
+    }
+    
+    public int getTreasuresGained(){
+        return price.getTreasures();
+    }
 }

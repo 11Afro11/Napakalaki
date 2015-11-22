@@ -1,9 +1,9 @@
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * and open theNtemplate in the editor.
  */
-package napakalaki;
+package NapakalakiGame;
 import java.util.ArrayList;
 
 /**
@@ -44,15 +44,15 @@ public class Napakalaki {
 		return null;
 	}
 
-	public void discardVisibleTreasures(TreasureKind tesoro){
+	public void discardVisibleTreasures(ArrayList<Treasure> tesoro){
 		
 	}
 
-	public void discardHiddenTreasures(TreasureKind tesoro){
+	public void discardHiddenTreasures(ArrayList<Treasure> tesoro){
 
         }
 
-	public void makeTreasuresVisibles(TreasureKind tesoro){
+	public void makeTreasuresVisibles(ArrayList<Treasure> tesoro){
 		
 	}
 
@@ -75,5 +75,9 @@ public class Napakalaki {
 	public boolean endOfGame(CombatResult result){
 		return false;
 	}
+
+    public void initGame(ArrayList<String> names) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
 

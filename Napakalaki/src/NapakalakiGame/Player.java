@@ -3,8 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package napakalaki;
+package NapakalakiGame;
 import java.util.ArrayList;
+import NapakalakiGame.BadConsequence;
+import NapakalakiGame.CombatResult;
+import NapakalakiGame.Monster;
+import NapakalakiGame.Treasure;
 
 
 public class Player {
@@ -16,6 +20,7 @@ public class Player {
     private ArrayList<Treasure> hiddenTreasures = new ArrayList();
     private ArrayList<Treasure> visibleTreasures = new ArrayList();
     private BadConsequence badStuff;
+    static int maxLevel = 10;
 
     Player(String name){
     	this.name = name;
@@ -32,16 +37,6 @@ public class Player {
 
     public boolean isDead(){
     	return dead;
-    }
-
-    private int getCombatLevel(){
-    	int lvl = this.level;
-
-    	for(Treasure t : this.visibleTreasures){
-    		lvl += t.getBonus();
-    	}
-
-    	return lvl;
     }
 
     private void incrementLevels(int i){
@@ -82,8 +77,6 @@ public class Player {
         return visibleTreasures.size();
     }
 
-
-
     public void setEnemy(Player enemy){
         this.enemy = enemy;
     }
@@ -100,7 +93,57 @@ public class Player {
     }
 
     private boolean canMakeTreasureVisible(Treasure t){
-        return false;
+        boolean result = false;
+ 
+        if (this.visibleTreasures.size() < 4) {
+            TreasureKind type = t.getType();
+            switch (type) {
+ 
+                case ONEHAND:
+ 
+                    if (isTreasureKindInUse(TreasureKind.BOTHHANDS)) {
+                        result = false;
+                    } else {
+ 
+                        int i = 0;
+                        for (Treasure tv : this.visibleTreasures) {
+                            if (tv.getType().equals(TreasureKind.ONEHAND)) {
+                                i++;
+                            }
+                        }
+ 
+                        if (i == 2) {
+                            result = false;
+                        } else {
+                            result = true;
+                        }
+                    }
+                    break;
+ 
+                default:
+                    result = !isTreasureKindInUse(type);
+                    break;
+ 
+            }
+ 
+        }
+ 
+        return result;
+    }
+    
+    private boolean isTreasureKindInUse(TreasureKind type) {
+        boolean result = false;
+        for (Treasure tv : this.visibleTreasures) {
+ 
+            if (type.equals(tv.getType())) {
+ 
+                result = true;
+                break;
+ 
+            }
+ 
+        }
+        return result;
     }
 
     public ArrayList<Treasure> getHiddenTreasures(){
@@ -140,7 +183,8 @@ public class Player {
     }
 
     private Treasure giveMeATreasure(){
-        return null;
+        int randomNum = 1 + (int)(Math.random()*4);
+        return hiddenTreasures.get(randomNum);
     }
 
     public boolean canISteal(){
@@ -150,7 +194,12 @@ public class Player {
     public void discardAllTreasures(){
         
     }
+    
+    public String toString(){
+        return "Nombre = " +name+"levels="+ Integer.toString(level);
+    }
 }
+
 
 
 
