@@ -2,9 +2,9 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
-require_relative "cardDealer"
-require_relative "player"
-
+require_relative "CardDealer"
+require_relative "Player"
+require "singleton"
 module Napakalaki
 	include Singleton
 
