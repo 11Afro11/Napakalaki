@@ -5,24 +5,37 @@
  */
 package NapakalakiGame;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
  * @author david
  */
-public class Napakalaki {
+public class Napakalaki{
     	private static Napakalaki instance = null;
+    	private ArrayList<Player> players;
+    	private Player currentPlayer;
+    	private Monster currentMonster;
 
-	private Napakalaki(){
+	public Napakalaki(){
 
 	}
 
 	private void initPlayers(String[] names){
-
+            players = new ArrayList();
+            for(String s : names){
+                players.add(new Player(s));
+            }
 	}
 
 	private Player nextPlayer(){
-		return null;
+            int total_p = players.size();
+            int next_index = 0;
+            if(currentPlayer == null){
+                Random sig = new Random();
+                next_index = sig.nextInt(total_p);
+            }
+            return players.get(next_index);
 	}
 
 	private boolean nextTurnAllowed(){
@@ -30,7 +43,14 @@ public class Napakalaki {
 	}
 
 	private void setenemies(){
-
+		int total_players = this.players.size();
+                int index_enemy;
+                Player enemy;
+		do{
+                    Random rnd = new Random();
+                    index_enemy = rnd.nextInt(total_players);
+                    enemy = players.get(index_enemy);
+                }while(currentPlayer != enemy);
 	}
 
 	public static Napakalaki getInstance(){
@@ -61,23 +81,31 @@ public class Napakalaki {
 	}
 
 	public Player getCurrentPlayer(){
-		return null;
+		return this.currentPlayer;
 	}
 
 	public Monster getCurrentMonster(){
-		return null;
+		return this.currentMonster;
 	}
 
 	public boolean nextTurn(){
-		return false;
+		boolean allowed;
+		if(this.currentPlayer == null){
+			allowed = true;
+		}
+		else{
+			allowed = this.currentPlayer.validState();
+		}
+		return allowed;
 	}
 
 	public boolean endOfGame(CombatResult result){
-		return false;
+		return result == CombatResult.WINGAME;
 	}
 
     public void initGame(ArrayList<String> names) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
 }
 

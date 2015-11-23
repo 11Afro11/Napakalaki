@@ -9,18 +9,34 @@ module Napakalaki
 	include Singleton
 
 	def initPlayers(names)
+		@players = Array.new
+		names.each do |s|
+			players<<Player.new(s)
+		end
 
 	end
 
 	def nextPlayer
-		
-	end
+		total_p = @players.length
 
+		if(@currentPlayer == nil) then
+			next_index = rand(total_p)
+		
+	  end
+  end
 	def nextTurnAllowed
+		if (@currentPlayer == nil) then
+			allowed = true
+		else
+			allowed =@currentPlayer.valid_state
+		end
+		return allowed
 		
 	end
 
 	def setEnemies
+		total_players = @players.length
+		enemie = rand(total_players)
 		
 	end
 
@@ -49,10 +65,12 @@ module Napakalaki
 	end
 
 	def getCurrentPlayer
+		return @currentPlayer
 		
 	end
 
 	def getCurrentMonster
+		return @currentMonster
 		
 	end
 
@@ -61,6 +79,7 @@ module Napakalaki
 	end
 
 	def endOfGame
+		return result = WINGAME
 		
 	end
 end

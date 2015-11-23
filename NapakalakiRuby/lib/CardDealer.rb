@@ -163,10 +163,34 @@ module NapakalakiGame
 		end
 
 		def nextTreasure
+      if @unused_treasures.empty?
+        @used_treasure.each do |t|4
+          @unused_treasures<<t
+        end
+
+      shuffleTreasures
+      @used_treasure.clear
+      end
+      t = @unused_treasures.at(0)
+      #@used_treasure<<t@unused_treasures.delete(t)
+      return t
 
 		end
 
 		def nextMonster
+      if @unused_monsters.empty?
+        @used_monsters.each do |m|
+          @unused_monsters<<m
+        end
+        shuffleMonster
+        @used_monsters.clear
+      end
+
+      m = @unused_monsters.at(0)
+      @used_monsters<<m
+      @unused_monsters.delete(m)
+
+      return m
 
 		end
 

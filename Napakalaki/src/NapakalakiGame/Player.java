@@ -66,7 +66,7 @@ public class Player {
         }
     }
 
-    private boolean validState(){
+    public boolean validState(){
         if(badStuff.isEmpty() && hiddenTreasures.size() <= 4){
             return true;
         }
