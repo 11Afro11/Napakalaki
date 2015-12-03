@@ -16,7 +16,7 @@ public class Player {
     private String name;
     private int level;
     private boolean dead = false;
-    private boolean canlSteal = true;
+    private boolean canISteal = true;
     private Player enemy;
     private ArrayList<Treasure> hiddenTreasures = new ArrayList();
     private ArrayList<Treasure> visibleTreasures = new ArrayList();
@@ -97,7 +97,7 @@ public class Player {
     }
 
     private void haveStolen(){
-        canlSteal = false;
+        canISteal = false;
     }
 
     private boolean canYouGiveMeATreasure(){
@@ -162,27 +162,70 @@ public class Player {
     }
 
     public ArrayList<Treasure> getHiddenTreasures(){
-        return null;
+        return hiddenTreasures;
     }
 
     public ArrayList<Treasure> getVisibleTreasures(){
-        return null;
+        return visibleTreasures;
+    }
+    
+    private int getCombatLevel(){
+    	int lvl = this.level;
+
+    	for(Treasure t : this.visibleTreasures){
+    		lvl += t.getBonus();
+    	}
+
+    	return lvl;
     }
 
     public CombatResult combat(Monster m){
-        return null;
+        int myLevel = this.getCombatLevel();
+        
+        CombatResult combat;
+        
+        int monsterLevel = m.getCombatLevel();
+        
+        if(myLevel > monsterLevel){
+            this.applyPrize(m);
+            if(this.level >= 10){
+                combat = CombatResult.WINGAME;
+            }
+            else{
+                combat = CombatResult.WIN;
+            }
+        }
+        else{
+            combat = CombatResult.LOSE;
+            Dice dice = Dice.getInstance();
+            int dado = dice.nextNumber();
+            
+            boolean amIDead = m.getBc().getDeath();
+
+            if(amIDead){
+                this.dead = true;                    
+            }
+            else{
+                BadConsequence bad = m.getBc();
+                this.applyBadConsequence(bad);
+            }
+        }
+        return combat;
     }
 
-/*    public void makeTreasureVisible(Treasure t){
-
-    }*/
+    public void makeTreasureVisible(ArrayList<Treasure> t){
+        Napakalaki nappa = Napakalaki.getInstance();
+        nappa.makeTreasuresVisibles(t);
+    }
 
     public void discardVisibleTreasure(Treasure t){
-        
+        Napakalaki nappa = Napakalaki.getInstance();
+        nappa.discardVisibleTreasures(hiddenTreasures);
     }
 
     public void discardHiddenTreasure(Treasure t){
-
+        Napakalaki nappa = Napakalaki.getInstance();
+        nappa.discardHiddenTreasures(hiddenTreasures);
     }
 
     public int getLevel(){
@@ -209,7 +252,7 @@ public class Player {
     }
 
     public boolean canISteal(){
-        return false;
+        return canISteal;
     }
 
     public void discardAllTreasures(){
