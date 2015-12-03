@@ -105,5 +105,9 @@ public class BadConsequence {
         return text +"levels="+ Integer.toString(levels)+"Visible="+Integer.toString(nVisibleTreasures)+"Hidden="+Integer.toString(nHiddenTeasures);
     } 
 
+    BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> visibleTreasures, ArrayList<Treasure> hiddenTreasures) {
+        
+    }
+
     
 }

@@ -168,7 +168,7 @@ public class CardDealer {
             Collections.shuffle(this.unusedMonster);
 	}
 
-	public CardDealer getInstance(){
+	public static CardDealer getInstance(){
 		if(instance == null){
 			instance = new CardDealer();
 		}
@@ -176,50 +176,50 @@ public class CardDealer {
 	}
 
 	public Treasure nextTreasure(){
-    if(this.unusedTreasures == null){
-      for(Treasure t: this.usedTreasures){
-        this.unusedTreasures.add(t);
-      }
+            if(this.unusedTreasures == null){
+              for(Treasure t: this.usedTreasures){
+                this.unusedTreasures.add(t);
+              }
 
-      this.shuffleTreasures();
-      this.usedTreasures.clear();
-    }
-    Treasure t = this.unusedTreasures.get(0);
-    this.usedTreasures.add(t);
-    this.unusedTreasures.remove(t);
-
-    return t;
-
-	}
-
-    public Monster nextMonster(){
-        if(this.unusedMonster == null){
-            for(Monster m: this.usedMonster){
-                this.unusedMonster.add(m);
-      }
-
-        this.shuffleMonsters();
-        this.usedMonster.clear();
-    }
-    Monster m = this.unusedMonster.get(0);
-    this.usedMonster.add(m);
-    this.unusedMonster.remove(m);
-    return m;
-}
-
-	public void giveTreasureBack(Treasure t){
+              this.shuffleTreasures();
+              this.usedTreasures.clear();
+            }
+            Treasure t = this.unusedTreasures.get(0);
             this.usedTreasures.add(t);
-	}
+            this.unusedTreasures.remove(t);
 
-	public void giveMonsterBack(Monster m){
-		this.usedMonster.add(m);
-	}
+            return t;
 
-	public void initCards(){
+        }
+
+        public Monster nextMonster(){
+            if(this.unusedMonster == null){
+                for(Monster m: this.usedMonster){
+                    this.unusedMonster.add(m);
+            }
+
+            this.shuffleMonsters();
+            this.usedMonster.clear();
+            }
+            Monster m = this.unusedMonster.get(0);
+            this.usedMonster.add(m);
+            this.unusedMonster.remove(m);
+            return m;
+        }
+
+        public void giveTreasureBack(Treasure t){
+            this.usedTreasures.add(t);
+        }
+
+        public void giveMonsterBack(Monster m){
+                this.usedMonster.add(m);
+        }
+
+        public void initCards(){
             this.shuffleMonsters();
             this.shuffleTreasures();
             this.initTreasureCardDeck();
             this.initMonsterCardDeck();
-            
-	}
+
+        }
 }
