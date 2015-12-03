@@ -53,11 +53,24 @@ class Prize
 	end
 
 	def applyPrize(monstruo)
-		@level = @level + monstruo.getPrize().getLevel()
+		nLevels = monstruo.getLevelsGained()
+    self.incrementLevels(nlevels)
+    nTreasures = monstruo.getTreasuresGained()
+    if nTreasures > 0
+      dealer = CardDealer.getInstance()
+      i = 0
+      while i < nTreasures
+        treasure = dealer.nextTreasure()
+        @hiddenTreasure.add(treasure)
+      end
+    end
 	end
 
-	def applyBadConsequence(monstruo)
-		@level = @level - monstruo.getBc().getLevel()
+	def applyBadConsequence(bc)
+		nlevels = bc.getLevels()
+    self.decrementLevels(nLevels)
+    pendingBad = b.adjustToFitTreasureLists(@visibleTreasures, @hiddenTreasures)
+    setPendingBadConsequence(pendingBad)
 	end
 
   def canMakeTreasureVisible(t)
@@ -165,11 +178,21 @@ class Prize
   end
   
   def stealTreasure
+    canI = sel.canISteal()
+    if canI
+      canYou = @enemy.canYouGiveMeATreasure()
+      if canYou
+        treasure = enemy.giveMeATreasure()
+        @hiddenTreasures.add(treasure)
+        self.haveStolen()
+        return treasure
+      end
+    end
     return null
   end
   
   def giveMeATreasure
-    return null
+    return hiddenTreasures.get(1+Random.rand(4))
   end
   
   def canIsteal
@@ -177,7 +200,7 @@ class Prize
   end
   
   def canYouGiveMeAtreasure
-    return false
+    return (!hiddenTreasures.isEmpty() || !visibleTreasures.isEmpty())
   end
   
   def haveStolen
@@ -185,7 +208,32 @@ class Prize
   end
   
   def discardAllTreasures
+    for t in @visibleTreasures
+      self.discardVsisibleTreasures(t)
+    end
+    
+    for t in @hiddenTreasures
+      self.discardHiddenTreasures(t)
+    end
   end
+  
+  def initTreasures(names)
+    dealer = CardDealer.getInstance()
+    dice = Dice.getInstance()
+    self.bringToLife()
+    treasure = dealer.nextTreasure()
+    @hiddenTreasures.add(treasure)
+    number = dice.nextNumber()
+    if number > 1
+      treasure = dealer.nextTreasure()
+      @hiddenTreasures.add(treasure)
+    end 
+    if number == 0
+      treasure = dealer.nextTreasure()
+      @hiddenTreasures.add(treasure)
+    end
+  end
+  
   
   def to_s
     "Nombre: #{name}, Nivel:#{level}, Enemigo: #{enemy}"
