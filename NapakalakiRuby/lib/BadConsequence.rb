@@ -65,6 +65,30 @@ module NapakalakiGame
       self.specificHiddenTreasure.remove(t.getType)
     end
     
+    def adjustToFitTreasureLists(vt, ht)
+      if(@nHiddenTreasures != 0 || @nVisibleTreasures != 0)
+        if(vt.size() <= @nVisibleTreasures)
+          nv = vt.size()
+        
+        else
+          nv = @nVissibleTreasures
+        end
+        if(ht.size() <= @nHiddenTreasures)
+          nh = ht.size()
+        else
+          nh = @nHiddenTreasures
+        end
+        bd = BadConsequence.newLevelNumberOfTreasures(self.text, self.levels, nv, nh)
+      
+      else if(!self.specificVisibleTreasure.isEmpty() || !self.specificHiddenTreasure.isEmpty())
+          visible = vt & specificVisibleTreasure
+          hidden = ht & specificHiddenTreasure
+          bd = BadConsequence.newLevelNumberOfTreasures(self.text, self.levels, visible, hidden)
+      end
+      return bd        
+    end
+    end
+    
     def to_s
       "#{@text}"
     end 
