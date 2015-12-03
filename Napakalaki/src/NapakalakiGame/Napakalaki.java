@@ -72,7 +72,7 @@ public class Napakalaki{
 
         }
 
-	public void makeTreasuresVisibles(ArrayList<Treasure> tesoro){
+	public void makeTreasuresVisibles(Treasure tesoro){
 		
 	}
 

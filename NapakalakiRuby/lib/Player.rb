@@ -154,27 +154,71 @@ class Prize
 	end
   
   def getHiddenTreasures
-    return null
+    return @hiddenTreasures
   end
   
   def getVisibleTreasures
-    return null
+    return @visibleTreasures
   end
   
   def combat(m)
-    return null
+    myLevel = self.getCombatLevel()
+    monsterLevel = m.getCombatLevel()
+    
+    if myLevel > monsterLevel
+      self.applyPrize(m)
+      if@level >= 10
+        combat = [CombatResult::WINGAME]
+      else
+        combat = [CombatResult::WIN]
+      end
+      
+    else
+      combat = [CombatResult::LOSE]
+      amIdead = m.getBc().getDeath();
+      if(amIdead)
+        @dead = true
+      else
+        bad = m.getBc()
+        self.applyBadConsequence(bad)
+      end
+      return combat
+  end
   end
   
-  def makeTreasureVisible
+  def makeTreasureVisible(t)
+    nappa = Napakalaki.getInstance()
+    if self.canMakeTreasureVisible()
+      nappa.makeTreasureVisible(t)
+    end
   end
   
-  def discardVisibleTreasure
+  def discardVisibleTreasure(t)
+    nappa = Napakalaki.getInstance()
+    nappa.discardVisibleTreasures(t)
   end
   
-  def discardHiddenTreasure
+  def discardHiddenTreasure(t)
+    nappa = Napakalaki.getInstance()
+    nappa.discardHiddenTreasures(t)
   end
   
   def initTreasure
+    dealer = CardDealer.getInstance()
+    dice = Dice.getInstance()
+    self.bringTiLife()
+    treasure = dealer.nextTreasure()
+    hiddenTreasires << treasure
+    number= dice.nextNumber()
+    if number > 1
+      treasure = dealer.nextTreasure()
+      hiddenTreasure << treasure
+    end
+    if number == 6
+      treasure = dealer.nextTreasure()
+      hiddenTreasure << treasure
+    end
+    
   end
   
   def stealTreasure

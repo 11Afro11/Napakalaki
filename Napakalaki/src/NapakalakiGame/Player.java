@@ -197,8 +197,6 @@ public class Player {
         }
         else{
             combat = CombatResult.LOSE;
-            Dice dice = Dice.getInstance();
-            int dado = dice.nextNumber();
             
             boolean amIDead = m.getBc().getDeath();
 
@@ -213,19 +211,21 @@ public class Player {
         return combat;
     }
 
-    public void makeTreasureVisible(ArrayList<Treasure> t){
+    public void makeTreasureVisible(Treasure t){
         Napakalaki nappa = Napakalaki.getInstance();
-        nappa.makeTreasuresVisibles(t);
+        if(canMakeTreasureVisible(t)){
+            nappa.makeTreasuresVisibles(t);
+        }
     }
 
-    public void discardVisibleTreasure(Treasure t){
+    public void discardVisibleTreasure(ArrayList<Treasure> treasures){
         Napakalaki nappa = Napakalaki.getInstance();
-        nappa.discardVisibleTreasures(hiddenTreasures);
+        nappa.discardVisibleTreasures(treasures);
     }
 
-    public void discardHiddenTreasure(Treasure t){
+    public void discardHiddenTreasure(ArrayList<Treasure> treasures){
         Napakalaki nappa = Napakalaki.getInstance();
-        nappa.discardHiddenTreasures(hiddenTreasures);
+        nappa.discardHiddenTreasures(treasures);
     }
 
     public int getLevel(){
@@ -256,12 +256,9 @@ public class Player {
     }
 
     public void discardAllTreasures(){
-        for(Treasure t : visibleTreasures){
-            discardVisibleTreasure(t);
-        }
-        for(Treasure t : hiddenTreasures){
-            discardHiddenTreasure(t);
-        }
+        discardVisibleTreasure(visibleTreasures);
+        discardHiddenTreasure(hiddenTreasures);
+        
     }
     
     public String toString(){
