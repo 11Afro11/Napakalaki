@@ -105,8 +105,38 @@ public class BadConsequence {
         return text +"levels="+ Integer.toString(levels)+"Visible="+Integer.toString(nVisibleTreasures)+"Hidden="+Integer.toString(nHiddenTeasures);
     } 
 
-    BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> visibleTreasures, ArrayList<Treasure> hiddenTreasures) {
+    BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> vt, ArrayList<Treasure> ht) {
+        ArrayList<TreasureKind> tvisible = new ArrayList(vt);
+        ArrayList<TreasureKind> thidden = new ArrayList(ht);
         
+        int nv = 0; 
+        int nh = 0;
+        
+        BadConsequence bd = new BadConsequence("",0,0,0);
+        
+        if(this.nHiddenTeasures != 0 || this.nVisibleTreasures != 0){
+            if(vt.size() <= nVisibleTreasures){
+                nv = vt.size();
+            }
+            else
+                nv = nVisibleTreasures;
+            
+            if(ht.size() <= nHiddenTeasures){
+                nh = ht.size();
+            }
+            else
+                nh = nVisibleTreasures;
+            
+            bd = new BadConsequence(this.text, this.levels, nv,nh);
+        }
+        
+        else if(!this.specificVisibleTreasure.isEmpty() || !this.specificHiddenTreasure.isEmpty()){
+            tvisible.retainAll(specificVisibleTreasure);
+            thidden.retainAll(specificHiddenTreasure);
+            bd = new BadConsequence(this.text, this.levels, tvisible,thidden);
+            
+        }
+        return bd;
     }
 
     
