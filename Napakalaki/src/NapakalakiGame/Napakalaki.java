@@ -38,6 +38,17 @@ public class Napakalaki{
                 Random sig = new Random();
                 next_index = sig.nextInt(total_p);
             }
+            else{
+                int currentIndex = this.players.indexOf(this.currentPlayer);
+                
+                if(currentIndex == total_p -1){
+                    next_index = 0;
+                }
+                else{
+                    next_index = currentIndex +1;
+                }
+            }
+            
             return players.get(next_index);
 	}
 
