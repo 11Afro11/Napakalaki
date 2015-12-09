@@ -227,7 +227,7 @@ public class Player {
 
     public void discardVisibleTreasure(Treasure treasures){
         visibleTreasures.remove(treasures);
-        if(badStuff ==null && !badStuff.isEmpty()){
+        if(badStuff !=null && !badStuff.isEmpty()){
             badStuff.substractVisibleTreasure(treasures);
         }
         dieIfNotreasures();
@@ -235,7 +235,7 @@ public class Player {
 
     public void discardHiddenTreasure(Treasure treasures){
         hiddenTreasures.remove(treasures);
-        if(badStuff ==null && !badStuff.isEmpty()){
+        if(badStuff !=null && !badStuff.isEmpty()){
             badStuff.substractHiddenTreasure(treasures);
         }
         dieIfNotreasures();
