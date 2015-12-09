@@ -10,6 +10,7 @@ import NapakalakiGame.CombatResult;
 import NapakalakiGame.Monster;
 import NapakalakiGame.Treasure;
 import NapakalakiGame.CardDealer;
+import java.util.Random;
 import NapakalakiGame.Napakalaki;
 
 public class Player {
@@ -258,7 +259,7 @@ public class Player {
     }
 
     private Treasure giveMeATreasure(){
-        int randomNum = 1 + (int)(Math.random()*4);
+        int randomNum = (int)(Math.random()*4);
         return hiddenTreasures.get(randomNum);
     }
 
