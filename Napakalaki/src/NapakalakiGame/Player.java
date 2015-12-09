@@ -15,12 +15,12 @@ import NapakalakiGame.Napakalaki;
 public class Player {
     private String name;
     private int level;
-    private boolean dead = false;
+    private boolean dead = true;
     private boolean canISteal = true;
     private Player enemy;
     private ArrayList<Treasure> hiddenTreasures = new ArrayList();
     private ArrayList<Treasure> visibleTreasures = new ArrayList();
-    private BadConsequence badStuff;
+    private BadConsequence badStuff = new BadConsequence("", 0 ,0, 0);
     static int maxLevel = 10;
 
     Player(String name){
@@ -82,10 +82,7 @@ public class Player {
     }
 
     public boolean validState(){
-        if(badStuff.isEmpty() && hiddenTreasures.size() <= 4){
-            return true;
-        }
-        return false;
+        return badStuff.isEmpty() && hiddenTreasures.size() <= 4;
     }
 
     private int howManyVissibleTreasures(){
@@ -101,10 +98,7 @@ public class Player {
     }
 
     private boolean canYouGiveMeATreasure(){
-        if(!hiddenTreasures.isEmpty() || !visibleTreasures.isEmpty()){
-            return true;
-        }
-        return false;
+        return !hiddenTreasures.isEmpty() || !visibleTreasures.isEmpty();
     }
 
     private boolean canMakeTreasureVisible(Treasure t){
