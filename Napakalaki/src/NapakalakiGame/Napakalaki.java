@@ -18,13 +18,13 @@ public class Napakalaki{
     	private ArrayList<Player> players;
     	private Player currentPlayer;
     	private Monster currentMonster;
-    	private dealer = CardDealer.getInstance();
+    	private CardDealer dealer = CardDealer.getInstance();
 
 	public Napakalaki(){
 
 	}
 
-	private void initPlayers(String[] names){
+	private void initPlayers(ArrayList<String> names){
             players = new ArrayList();
             for(String s : names){
                 players.add(new Player(s));
@@ -73,48 +73,43 @@ public class Napakalaki{
 	public CombatResult developCombat(){
 		CombatResult combat;
 		Monster m = this.currentMonster;
-		int myLevel = this.currentPlayer.getCombatLevel();
+		int myLevel = this.currentPlayer.getLevel();
 		int monsterLevel = this.currentMonster.getCombatLevel();
 
 		if(myLevel > monsterLevel){
-			this.currentMonster.getPrize();
-			combat = WIN;
+			this.currentMonster.getPrice();
+			combat = CombatResult.WIN;
 		}
 		else{
 			this.currentMonster.getBc();
-			combat = LOSE;
+			combat = CombatResult.LOSE;
 		}
 
-		this.dealer.giveTreasureBack(m);
+		this.dealer.giveMonsterBack(m);
 		return combat;
 	}
 
 	public void discardVisibleTreasures(ArrayList<Treasure> treasures){
 		for(Treasure t : treasures){
-			this.currentPlayer.discardVisibleTreasures(t);
+			this.currentPlayer.discardVisibleTreasure(t);
 			this.dealer.giveTreasureBack(t);
 		}
 	}
 
 	public void discardHiddenTreasures(ArrayList<Treasure> treasures){
 		for(Treasure t : treasures){
-			this.currentPlayer.discardHiddenTreasures(t);
+			this.currentPlayer.discardHiddenTreasure(t);
 			this.dealer.giveTreasureBack(t);
 		}
 	}
 
 	public void makeTreasuresVisibles(ArrayList<Treasure> treasures){
 		for(Treasure t : treasures){
-			this.currentPlayer.makeTreasuresVisibles(t);
-			boolean canI = canMakeTreasureVisible(t);
-
-			if(canI){
-				this.dealer.giveTreasureBack(t);
-			}
+                    this.currentPlayer.makeTreasureVisible(t);
 		}		
 	}
 
-	public void initGame(String[] players){
+	public void initGame(ArrayList<String> players){
 		this.initPlayers(players);
 		this.setenemies();
 		dealer.initCards();

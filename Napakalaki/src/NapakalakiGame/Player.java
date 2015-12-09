@@ -212,20 +212,26 @@ public class Player {
     }
 
     public void makeTreasureVisible(Treasure t){
-        Napakalaki nappa = Napakalaki.getInstance();
         if(canMakeTreasureVisible(t)){
-            nappa.makeTreasuresVisibles(t);
+            visibleTreasures.add(t);
+            hiddenTreasures.remove(t);
         }
     }
 
-    public void discardVisibleTreasure(ArrayList<Treasure> treasures){
-        Napakalaki nappa = Napakalaki.getInstance();
-        nappa.discardVisibleTreasures(treasures);
+    public void discardVisibleTreasure(Treasure treasures){
+        visibleTreasures.remove(treasures);
+        if(badStuff ==null && !badStuff.isEmpty()){
+            badStuff.substractVisibleTreasure(treasures);
+        }
+        dieIfNotreasures();
     }
 
-    public void discardHiddenTreasure(ArrayList<Treasure> treasures){
-        Napakalaki nappa = Napakalaki.getInstance();
-        nappa.discardHiddenTreasures(treasures);
+    public void discardHiddenTreasure(Treasure treasures){
+        hiddenTreasures.remove(treasures);
+        if(badStuff ==null && !badStuff.isEmpty()){
+            badStuff.substractHiddenTreasure(treasures);
+        }
+        dieIfNotreasures();
     }
 
     public int getLevel(){
@@ -256,8 +262,12 @@ public class Player {
     }
 
     public void discardAllTreasures(){
-        discardVisibleTreasure(visibleTreasures);
-        discardHiddenTreasure(hiddenTreasures);
+        for(Treasure t : visibleTreasures){
+            discardVisibleTreasure(t);
+        }
+        for(Treasure t : hiddenTreasures){
+            discardHiddenTreasure(t);
+        }
         
     }
     
