@@ -259,8 +259,9 @@ public class Player {
     }
 
     private Treasure giveMeATreasure(){
-        int randomNum = (int)(Math.random()*4);
-        return hiddenTreasures.get(randomNum);
+        Random randomNum = new Random();
+        int num = randomNum.nextInt(hiddenTreasures.size());
+        return hiddenTreasures.get(num);
     }
 
     public boolean canISteal(){
