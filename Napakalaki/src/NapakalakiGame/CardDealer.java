@@ -15,7 +15,7 @@ import java.util.Arrays;
  */
 public class CardDealer {
     	private static CardDealer instance = null;
-        private ArrayList<Treasure> unusedTreasures;
+        private ArrayList<Treasure> unusedTreasures= new ArrayList();
         private ArrayList<Monster> usedMonster;
         private ArrayList<Treasure> usedTreasures;
         private ArrayList<Monster> unusedMonster;
@@ -215,11 +215,11 @@ public class CardDealer {
                 this.usedMonster.add(m);
         }
 
-        public void initCards(){
-            this.shuffleMonsters();
-            this.shuffleTreasures();
+        public void initCards(){            
             this.initTreasureCardDeck();
             this.initMonsterCardDeck();
+            this.shuffleMonsters();
+            this.shuffleTreasures();
 
         }
 }

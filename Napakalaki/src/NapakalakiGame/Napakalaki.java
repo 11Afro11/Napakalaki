@@ -60,7 +60,7 @@ public class Napakalaki{
                     Random rnd = new Random();
                     index_enemy = rnd.nextInt(total_players);
                     enemy = players.get(index_enemy);
-                }while(currentPlayer != enemy);
+                }while(currentPlayer == enemy);
 	}
 
 	public static Napakalaki getInstance(){
