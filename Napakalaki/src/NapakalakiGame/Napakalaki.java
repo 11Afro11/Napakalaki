@@ -55,12 +55,16 @@ public class Napakalaki{
 	private void setenemies(){
 		int total_players = this.players.size();
                 int index_enemy;
-                Player enemy;
-		do{
-                    Random rnd = new Random();
-                    index_enemy = rnd.nextInt(total_players);
-                    enemy = players.get(index_enemy);
-                }while(currentPlayer == enemy);
+                for(int i = 0; i < total_players; i++){
+                    Player enemy = new Player("");
+                    Player jugador = players.get(i);
+                    do{
+                        Random rnd = new Random();
+                        index_enemy = rnd.nextInt(total_players);
+                        enemy = players.get(index_enemy);
+                    }while(jugador == enemy);
+                    jugador.setEnemy(enemy);
+                }
 	}
 
 	public static Napakalaki getInstance(){

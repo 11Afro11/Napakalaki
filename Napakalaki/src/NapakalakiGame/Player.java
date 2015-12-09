@@ -27,6 +27,17 @@ public class Player {
     	this.name = name;
     	level = 1;
     }
+    
+    Player(Player otro){
+        this.name = otro.name;
+        this.level = otro.level;
+        this.dead = otro.dead;
+        this.canISteal = otro.canISteal;
+        this.enemy = otro.enemy;
+        this.visibleTreasures = otro.visibleTreasures;
+        this.hiddenTreasures = otro.hiddenTreasures;
+        this.badStuff = otro.badStuff;
+    }
 
     public String getName(){
     	return name;
@@ -90,6 +101,7 @@ public class Player {
     }
 
     public void setEnemy(Player enemy){
+        this.enemy = new Player("");
         this.enemy = enemy;
     }
 
@@ -236,8 +248,7 @@ public class Player {
         boolean canI = canISteal();
         Treasure treasure = null;
         if(canI){
-            boolean canYou = enemy.canYouGiveMeATreasure();
-            if(canYou){
+            if(enemy.canYouGiveMeATreasure()){
                 treasure = enemy.giveMeATreasure();
                 hiddenTreasures.add(treasure);
                 haveStolen();

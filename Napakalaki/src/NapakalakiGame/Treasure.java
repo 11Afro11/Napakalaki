@@ -31,7 +31,7 @@ public class Treasure{
 	}
         
         public String toString(){
-        return "Nombre = " +name+"bonus="+ Integer.toString(bonus);
+        return "Nombre = " +name+" bonus="+ Integer.toString(bonus);
     }
 
 }
