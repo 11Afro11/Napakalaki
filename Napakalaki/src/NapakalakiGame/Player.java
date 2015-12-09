@@ -231,6 +231,8 @@ public class Player {
             badStuff.substractVisibleTreasure(treasures);
         }
         dieIfNotreasures();
+        CardDealer dealer = CardDealer.getInstance();
+        dealer.giveTreasureBack(treasures);
     }
 
     public void discardHiddenTreasure(Treasure treasures){
@@ -239,6 +241,8 @@ public class Player {
             badStuff.substractHiddenTreasure(treasures);
         }
         dieIfNotreasures();
+        CardDealer dealer = CardDealer.getInstance();
+        dealer.giveTreasureBack(treasures);
     }
 
     public int getLevel(){
