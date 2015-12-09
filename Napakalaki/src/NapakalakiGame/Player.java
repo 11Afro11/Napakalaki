@@ -231,8 +231,6 @@ public class Player {
             badStuff.substractVisibleTreasure(treasures);
         }
         dieIfNotreasures();
-        CardDealer dealer = CardDealer.getInstance();
-        dealer.giveTreasureBack(treasures);
     }
 
     public void discardHiddenTreasure(Treasure treasures){
@@ -241,8 +239,6 @@ public class Player {
             badStuff.substractHiddenTreasure(treasures);
         }
         dieIfNotreasures();
-        CardDealer dealer = CardDealer.getInstance();
-        dealer.giveTreasureBack(treasures);
     }
 
     public int getLevel(){
@@ -273,17 +269,19 @@ public class Player {
     }
 
     public void discardAllTreasures(){
-        for(Treasure t : visibleTreasures){
+        ArrayList<Treasure> aux = (ArrayList<Treasure>) visibleTreasures.clone();
+        for(Treasure t : aux){
             discardVisibleTreasure(t);
         }
-        for(Treasure t : hiddenTreasures){
+        ArrayList<Treasure> aux2 = (ArrayList<Treasure>) visibleTreasures.clone();
+        for(Treasure t : aux2){
             discardHiddenTreasure(t);
         }
         
     }
     
     public String toString(){
-        return "Nombre = " +name+"levels="+ Integer.toString(level);
+        return "Nombre = " +name+" levels= "+ Integer.toString(level);
     }
 
     public void initTreasures(){
