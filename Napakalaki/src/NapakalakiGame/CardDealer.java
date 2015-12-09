@@ -16,9 +16,9 @@ import java.util.Arrays;
 public class CardDealer {
     	private static CardDealer instance = null;
         private ArrayList<Treasure> unusedTreasures= new ArrayList();
-        private ArrayList<Monster> usedMonster;
-        private ArrayList<Treasure> usedTreasures;
-        private ArrayList<Monster> unusedMonster;
+        private ArrayList<Monster> usedMonster= new ArrayList();
+        private ArrayList<Treasure> usedTreasures= new ArrayList();
+        private ArrayList<Monster> unusedMonster= new ArrayList();
         
         
 
