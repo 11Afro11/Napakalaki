@@ -81,7 +81,7 @@ module NapakalakiGame
         bd = BadConsequence.newLevelNumberOfTreasures(@text, @levels, nv, nh)
       
       else
-        if(!@tVisibleTreasure.empty || !@tHiddenTreasure.empty)
+        if(!@tVisibleTreasure.nil? || !@tHiddenTreasure.nil?)
           visible = vt & @specificVisibleTreasure
           hidden = ht & @specificHiddenTreasure
           bd = BadConsequence.newLevelNumberOfTreasures(@text, @levels, visible, hidden)
