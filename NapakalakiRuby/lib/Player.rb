@@ -1,12 +1,15 @@
 # To change this license header, choose License Headers in Project Properties.
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
-
+require_relative "BadConsequence.rb"
+require_relative "Treasure.rb"
+require_relative "Dice.rb"
+require_relative "TreasureKind.rb"
 module NapakalakiGame
 
-class Prize
+class Player
 	attr_accessor :name, :level, :dead, :canSteal, :enemy, :hiddenTreasures, :visibleTreasures, :badStuff
-	def initialize(name, level, dead, canSteal, enemy, hiddenTreasures, visibleTreasures, badStuff)
+	def initialize(name, level = 1, dead = true, canSteal=true, enemy=nil, hiddenTreasures = Array.new, visibleTreasures=Array.new, badStuff = BadConsequence.newLevelNumberOfTreasures("",0,0,0))
 		@name = name
 		@level = level
 		@dead = dead
@@ -17,7 +20,6 @@ class Prize
 		@badStuff = badStuff
     @@maxLevel = 10
 	end
-
 
 	def getName
 		@name
@@ -95,12 +97,10 @@ class Prize
         
         else
           result = true
+        end
       end
-        
-      end
-      else if
-          result = !isTreasureKindInUse(tipo)
-      end
+    else
+      result = !isTreasureKindInUse(tipo)
     end
     return result
   end
@@ -183,7 +183,7 @@ class Prize
         self.applyBadConsequence(bad)
       end
       return combat
-  end
+    end
   end
   
   def makeTreasureVisible(t)
@@ -283,5 +283,5 @@ class Prize
     "Nombre: #{name}, Nivel:#{level}, Enemigo: #{enemy}"
   end
   
-  end
+end
 end

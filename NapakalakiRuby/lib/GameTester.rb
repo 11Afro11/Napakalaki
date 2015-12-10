@@ -6,9 +6,9 @@
 
 #última
 
-require 'singleton'
-require_relative 'Napakalaki'
-require_relative 'Command'
+require "singleton"
+require_relative "Napakalaki.rb"
+require_relative "Command.rb"
 
 module Test
 

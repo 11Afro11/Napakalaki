@@ -2,13 +2,25 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
-require_relative "CardDealer"
-require_relative "Player"
+require_relative "CardDealer.rb"
+require_relative "Player.rb"
 require "singleton"
-module Napakalaki
+module NapakalakiGame
+class Napakalaki
 	include Singleton
 
 	attr_accessor :currentPlayer, :currentMonster, :players, :carddealer
+
+	def initialize
+      
+      @players = Array.new
+      @carddealer = CardDealer.instance
+      @firstPlayer = true
+      @indice_jugador = 0;
+      @currentPlayer = Player.new("")
+      @currentMonster = Monster.new("", 0, Prize.new(0, 0),
+        BadConsequence.newLevelNumberOfTreasures("", 0, 0, 0))
+    end
 
 	def initPlayers(names)
 		@players = Array.new
@@ -39,10 +51,6 @@ module Napakalaki
 	def setEnemies
 		total_players = @players.length
 		enemie = rand(total_players)
-		
-	end
-
-	def getInstance
 		
 	end
 
@@ -114,4 +122,5 @@ module Napakalaki
 		return result = WINGAME
 		
 	end
+end
 end
