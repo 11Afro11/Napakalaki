@@ -190,12 +190,12 @@ class Player
     canI = self.canMakeTreasureVisible(t)
     if canI
     	visibleTreasures << t
-    	hiddenTreasures.remove(t)
+    	hiddenTreasures.delete(t)
     end
   end
   
   def discardVisibleTreasure(t)
-    visibleTreasures.remove(t)
+    visibleTreasures.delete(t)
     if !pendingBad.nil && !pendingBad.empty
     	pendingBad.substractVisibleTreasure(t)
     end
@@ -203,7 +203,7 @@ class Player
   end
   
   def discardHiddenTreasure(t)
-    hiddenTreasures.remove(t)
+    hiddenTreasures.delete(t)
     if !pendingBad.nil && !pendingBad.empty
     	pendingBad.substracthiddenTreasure(t)
     end
