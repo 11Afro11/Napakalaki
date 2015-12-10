@@ -58,14 +58,10 @@ class Napakalaki
 		m = @currentMonster;
 		myLevel = @currentPlayer.getCombatLevel()
 		monsterLevel = @currentMonster.getCombatLevel();
-
-		if myLevel > monsterLevel then
-			@currentMonster.getPrize()
-			combat = WIN
-		else
-			@currentMonster.getBadConsequence()
-			combat = LOSE
-		end
+    
+    combat = @currentPlayer.combat(m);
+    return combat
+    
 	end
 
 	def discardVisibleTreasures(treasure)
