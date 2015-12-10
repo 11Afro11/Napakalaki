@@ -79,16 +79,16 @@ class Player
   def canMakeTreasureVisible(t)
     result = false;
     
-    if self.visibleTreasures.size() < 4
+    if @visibleTreasures.size() < 4
       tipo = t.getType;
       
       if tipo == [TreasureKind::ONEHAND]
-        if isTreasureKindInUse([TreasureKind::BOOTHHANDS])
+        if self.isTreasureKindInUse([TreasureKind::BOOTHHANDS])
           result = false
         end
       else
         i = 0
-        for m in self.visibleTreasures
+        for m in @visibleTreasures
           if m.getType.equals([TreasureKind::ONEHAND])
             i = i+1
           end
@@ -101,7 +101,7 @@ class Player
         end
       end
     else
-      result = !isTreasureKindInUse(tipo)
+      result = !self.isTreasureKindInUse(tipo)
     end
     return result
   end
@@ -187,20 +187,27 @@ class Player
   end
   
   def makeTreasureVisible(t)
-    nappa = Napakalaki.instance
-    if self.canMakeTreasureVisible(t)
-      nappa.makeTreasureVisible(t)
+    canI = self.canMakeTreasureVisible(t)
+    if canI
+    	visibleTreasures << t
+    	hiddenTreasures.remove(t)
     end
   end
   
   def discardVisibleTreasure(t)
-    nappa = Napakalaki.instance
-    nappa.discardVisibleTreasures(t)
+    visibleTreasures.remove(t)
+    if !pendingBad.nil && !pendingBad.empty
+    	pendingBad.substractVisibleTreasure(t)
+    end
+    dieIfNoTreasures()
   end
   
   def discardHiddenTreasure(t)
-    nappa = Napakalaki.instance
-    nappa.discardHiddenTreasures(t)
+    hiddenTreasures.remove(t)
+    if !pendingBad.nil && !pendingBad.empty
+    	pendingBad.substracthiddenTreasure(t)
+    end
+    dieIfNoTreasures()
   end
   
   def initTreasure
