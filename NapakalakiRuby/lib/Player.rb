@@ -124,7 +124,7 @@ class Player
 	end
 
 	def validState
-		if badStuff.empty? && hiddenTreasures.size <= 4
+		if !badStuff.isEmpty && hiddenTreasures.size <= 4
 			return true
     end
 		return false
