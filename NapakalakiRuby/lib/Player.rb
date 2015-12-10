@@ -82,14 +82,14 @@ class Player
     if self.visibleTreasures.size() < 4
       tipo = t.getType;
       
-      if type == ONEHAND
-        if isTreasureKindInUse(BOOTHHANDS)
+      if tipo == [TreasureKind::ONEHAND]
+        if isTreasureKindInUse([TreasureKind::BOOTHHANDS])
           result = false
         end
       else
         i = 0
         for m in self.visibleTreasures
-          if m.getType.equals(ONEHAND)
+          if m.getType.equals([TreasureKind::ONEHAND])
             i = i+1
           end
         end
@@ -188,7 +188,7 @@ class Player
   
   def makeTreasureVisible(t)
     nappa = Napakalaki.instance
-    if self.canMakeTreasureVisible()
+    if self.canMakeTreasureVisible(t)
       nappa.makeTreasureVisible(t)
     end
   end
