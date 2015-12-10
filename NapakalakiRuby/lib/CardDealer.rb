@@ -22,7 +22,7 @@ module NapakalakiGame
       @unused_monster = Array.new
     end
     
-		def initTreasureCardDeck
+	def initTreasureCardDeck
       
       
       @unsused_treasures << Treasure.new("Si mi amo", 4, [TreasureKind::HELMET])
@@ -57,9 +57,9 @@ module NapakalakiGame
       @unsused_treasures << Treasure.new("Tentaculo de pega", 2, [TreasureKind::HELMET])
       @unsused_treasures << Treasure.new("Zapato deja-amigos", 1, [TreasureKind::SHOES])
       
-		end
+	end
 
-		def initMonsterCardDeck
+	def initMonsterCardDeck
       @unused_monsters = Array.new
      
        prize = Prize.new(2,1)
@@ -146,66 +146,69 @@ module NapakalakiGame
         prize = Prize.new(1, 1)
         badConsequence = BadConsequence.newLevelNumberOfTreasures("Menudo susto te llevas. Pierdes 2 niveles y 5 tesoros visibles", 2, 5, 0)
         unused_monsters<< Monster.new("El Lenguas", 20, prize, badConsequence)
-		end
+	end
 
-		def shuffleTreasures
+	def shuffleTreasures
       @unused_treasures = @unused_treasures.shuffle
 
-		end
+	end
 
-		def shuffleMonster
+	def shuffleMonster
       @unused_monsters = @unused_monsters.shuffle
 
-		end
+	end
 
-		def getInstance
-			@instance
-		end
+	def getInstance
+		@instance
+	end
 
-		def nextTreasure
+	def nextTreasure
       if @unused_treasures.nil?
         @used_treasure.each do |t|4
           @unused_treasures<<t
         end
 
-      shuffleTreasures
-      @used_treasure.clear
+	      shuffleTreasures
+	      @used_treasure.clear
       end
       t = @unused_treasures.at(0)
-      #@used_treasure<<t@unused_treasures.delete(t)
+      @used_treasure<<t
+      @unused_treasures.delete(t)
       return t
 
-		end
+	end
 
-		def nextMonster
+	def nextMonster
       if @unused_monsters.nil?
         @used_monsters.each do |m|
-          @unused_monsters<<m
+         	@unused_monsters<<m
         end
-        shuffleMonster
-        @used_monsters.clear
+        	shuffleMonster
+        	@used_monsters.clear
       end
 
-      m = @unused_monsters.at(0)
-      @used_monsters<<m
-      @unused_monsters.delete(m)
+	  m = @unused_monsters.at(0)
+	  @unused_monsters.delete(m)
+	  @used_monsters<<m
 
       return m
 
-		end
+	end
 
-		def giveTreasureBack(treasure)
-      @used_treasure << treasure
+	def giveTreasureBack(treasure)
+		if !used_treasures.include?
+      		@used_treasure << treasure
+      	end
+	end
 
-		end
+	def giveMonsterBack(monster)
+		if !used_monsters.include?
+      		@used_monsters << monster
+      	end
+	end
 
-		def giveMonsterBack(monster)
-      @used_monsters << monster
-
-		end
-
-		def initCards
+	def initCards
 			
-		end
+	end
   end
 end
