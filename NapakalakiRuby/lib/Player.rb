@@ -175,11 +175,11 @@ class Player
       
     else
       combat = [CombatResult::LOSE]
-      amIdead = m.getBc().getDeath();
+      amIdead = m.getBadConsequence().getDeath();
       if(amIdead)
         @dead = true
       else
-        bad = m.getBc()
+        bad = m.getBadConsequence()
         self.applyBadConsequence(bad)
       end
       return combat

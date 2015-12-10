@@ -63,7 +63,7 @@ class Napakalaki
 			@currentMonster.getPrize()
 			combat = WIN
 		else
-			@currentMonster.getBc()
+			@currentMonster.getBadConsequence()
 			combat = LOSE
 		end
 	end
