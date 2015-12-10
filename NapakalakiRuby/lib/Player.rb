@@ -208,11 +208,11 @@ class Player
     dice = Dice.instance
     self.bringToLife()
     treasure = dealer.nextTreasure()
-    hiddenTreasires << treasure
+    hiddenTreasures << treasure
     number= dice.nextNumber()
     if number > 1
       treasure = dealer.nextTreasure()
-      hiddenTreasure << treasure
+      hiddenTreasures << treasure
     end
     if number == 6
       treasure = dealer.nextTreasure()

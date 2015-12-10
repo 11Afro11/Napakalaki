@@ -161,7 +161,7 @@ module NapakalakiGame
 
 	def nextTreasure
       if @unused_treasures.nil?
-        @used_treasure.each do |t|4
+        @used_treasures.each do |t|4
           @unused_treasures<<t
         end
 
@@ -169,7 +169,7 @@ module NapakalakiGame
 	      @used_treasure.clear
       end
       t = @unused_treasures.at(0)
-      @used_treasure<<t
+      @used_treasures<<t
       @unused_treasures.delete(t)
       return t
 
@@ -194,7 +194,7 @@ module NapakalakiGame
 
 	def giveTreasureBack(treasure)
 		if !used_treasures.include?
-      		@used_treasure << treasure
+      		@used_treasures << treasure
       	end
 	end
 
