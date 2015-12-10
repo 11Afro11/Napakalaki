@@ -110,7 +110,7 @@ class Napakalaki
 		if allowed then
 			@currentMonster = @carddealer.nextMonster
 			@currentPlayer = @carddealer.nextPlayer
-			dead = @currentPlayer.isDead?
+			dead = @currentPlayer.isDead
 			if dead then
 				@currentPlayer.initTreasure
 			end
