@@ -19,6 +19,7 @@ class Napakalaki
       @currentPlayer = Player.new("")
       @currentMonster = Monster.new("", 0, Prize.new(0, 0),
         BadConsequence.newLevelNumberOfTreasures("", 0, 0, 0))
+      @currentPlayerIndex = -1
     end
 
 	def initPlayers(names)
@@ -31,10 +32,14 @@ class Napakalaki
 	def nextPlayer
 		total_p = @players.length
 
-		if(@currentPlayer == nil) then
+		if(@currentPlayerIndex == -1) then
 			next_index = rand(total_p)
-		
-	  end
+    else
+      @currentPlayerIndex = (@currentPlayerIndex +1) % total_p
+      @currentPlayer = @players.at(@currentPlayerIndex)
+    end
+      
+      return @currentPlayer
   end
 	def nextTurnAllowed
 		if (@currentPlayer == nil) then

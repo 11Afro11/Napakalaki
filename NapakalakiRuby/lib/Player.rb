@@ -60,7 +60,7 @@ class Player
     self.incrementLevels(nlevels)
     nTreasures = monstruo.getTreasuresGained()
     if nTreasures > 0
-      dealer = CardDealer.getInstance()
+      dealer = CardDealer.instance
       i = 0
       while i < nTreasures
         treasure = dealer.nextTreasure()
@@ -187,25 +187,25 @@ class Player
   end
   
   def makeTreasureVisible(t)
-    nappa = Napakalaki.getInstance()
+    nappa = Napakalaki.instance
     if self.canMakeTreasureVisible()
       nappa.makeTreasureVisible(t)
     end
   end
   
   def discardVisibleTreasure(t)
-    nappa = Napakalaki.getInstance()
+    nappa = Napakalaki.instance
     nappa.discardVisibleTreasures(t)
   end
   
   def discardHiddenTreasure(t)
-    nappa = Napakalaki.getInstance()
+    nappa = Napakalaki.instance
     nappa.discardHiddenTreasures(t)
   end
   
   def initTreasure
-    dealer = CardDealer.getInstance()
-    dice = Dice.getInstance()
+    dealer = CardDealer.instance
+    dice = Dice.instance
     self.bringTiLife()
     treasure = dealer.nextTreasure()
     hiddenTreasires << treasure
@@ -262,8 +262,8 @@ class Player
   end
   
   def initTreasures(names)
-    dealer = CardDealer.getInstance()
-    dice = Dice.getInstance()
+    dealer = CardDealer.instance
+    dice = Dice.instance
     self.bringToLife()
     treasure = dealer.nextTreasure()
     @hiddenTreasures<<(treasure)
