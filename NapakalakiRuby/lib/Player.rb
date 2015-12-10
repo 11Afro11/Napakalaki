@@ -5,6 +5,7 @@ require_relative "BadConsequence.rb"
 require_relative "Treasure.rb"
 require_relative "Dice.rb"
 require_relative "TreasureKind.rb"
+require_relative "CombatResult.rb"
 module NapakalakiGame
 
 class Player
@@ -70,9 +71,9 @@ class Player
 
 	def applyBadConsequence(bc)
 		nlevels = bc.getLevels()
-    self.decrementLevels(nLevels)
-    pendingBad = b.adjustToFitTreasureLists(@visibleTreasures, @hiddenTreasures)
-    setPendingBadConsequence(pendingBad)
+	    self.decrementLevels(nLevels)
+	    pendingBad = b.adjustToFitTreasureLists(@visibleTreasures, @hiddenTreasures)
+	    setPendingBadConsequence(pendingBad)
 	end
 
   def canMakeTreasureVisible(t)
@@ -164,17 +165,16 @@ class Player
   def combat(m)
     myLevel = self.getCombatLevel()
     monsterLevel = m.getCombatLevel()
-    
     if myLevel > monsterLevel
       self.applyPrize(m)
       if@level >= 10
-        combat = [CombatResult::WINGAME]
+        combatResult = [CombatResult::WINGAME]
       else
-        combat = [CombatResult::WIN]
+        combatResult = [CombatResult::WIN]
       end
       
     else
-      combat = [CombatResult::LOSE]
+      combatResult = [CombatResult::LOSE]
       amIdead = m.getBadConsequence().getDeath();
       if(amIdead)
         @dead = true
@@ -182,8 +182,8 @@ class Player
         bad = m.getBadConsequence()
         self.applyBadConsequence(bad)
       end
-      return combat
     end
+    return combatResult
   end
   
   def makeTreasureVisible(t)

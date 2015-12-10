@@ -59,8 +59,8 @@ class Napakalaki
 		myLevel = @currentPlayer.getCombatLevel()
 		monsterLevel = @currentMonster.getCombatLevel();
     
-    combat = @currentPlayer.combat(m);
-    return combat
+    	combat = @currentPlayer.combat(m);
+    	return combat
     
 	end
 
