@@ -76,7 +76,7 @@ class Napakalaki
 
 	def discardHiddenTreasures(treasure)
 		treasure.each do |t|
-			@currentPlayer.discardHiddenTreasures(t)
+			@currentPlayer.discardHiddenTreasure(t)
 			@carddealer.giveTreasureBack(t)
 		end		
 	end
