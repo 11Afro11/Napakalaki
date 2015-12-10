@@ -23,7 +23,7 @@ module NapakalakiGame
     end
     
 	def initTreasureCardDeck
-      
+      @unused_treasures = Array.new
       
       @unsused_treasures << Treasure.new("Si mi amo", 4, [TreasureKind::HELMET])
       @unsused_treasures << Treasure.new("Botas de investigacion", 3, [TreasureKind::SHOES])
