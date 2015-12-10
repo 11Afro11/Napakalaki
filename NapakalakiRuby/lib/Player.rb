@@ -19,7 +19,7 @@ class Player
 		@hiddenTreasures = hiddenTreasures
 		@visibleTreasures = visibleTreasures
 		@badStuff = badStuff
-    @@maxLevel = 10
+    	@@maxLevel = 10
 	end
 
 	def getName
