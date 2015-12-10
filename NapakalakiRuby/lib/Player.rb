@@ -44,11 +44,11 @@ class Player
 	end
 
 	def incrementLevels(lvl)
-		@levels = @levels + lvl
+		@levels = @levels+lvl
 	end
 
 	def decrementLevels(lvl)
-		@levels = @levels - lvl
+		@levels = @levels-lvl
 	end
 
 	def setPendingBadConsequence(bad)
@@ -70,9 +70,9 @@ class Player
 	end
 
 	def applyBadConsequence(bc)
-		nlevels = bc.getLevels()
-	    self.decrementLevels(nLevels)
-	    pendingBad = b.adjustToFitTreasureLists(@visibleTreasures, @hiddenTreasures)
+		# nlevels = bc.getLevels
+	    self.decrementLevels(bc.getLevels)
+	    pendingBad = bc.adjustToFitTreasureLists(@visibleTreasures, @hiddenTreasures)
 	    setPendingBadConsequence(pendingBad)
 	end
 
