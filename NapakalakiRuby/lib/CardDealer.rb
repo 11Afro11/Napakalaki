@@ -208,7 +208,11 @@ module NapakalakiGame
 	end
 
 	def initCards
-			
+    initTreasureCardDeck
+    shuffleTreasures
+    
+    initMonsterCardDeck
+    shuffleMonster
 	end
   end
 end
