@@ -42,7 +42,7 @@ class Napakalaki
 		if (@currentPlayer == nil) then
 			allowed = true
 		else
-			allowed =@currentPlayer.valid_state
+			allowed =@currentPlayer.validState
 		end
 		return allowed
 		
