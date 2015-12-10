@@ -94,5 +94,13 @@ module NapakalakiGame
       "#{@text}"
     end 
     
+    def isEmpty()
+      empty = false
+      if(@levels == 0 && nVisibleTreasures == 0 && nHiddenTreasures ==0 && death == false && tVisibleTreasures.empty? && tHiddenTreasures.empty?) then
+        empty = true
+      end
+      return empty
+    end
+    
   end
 end
