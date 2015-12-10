@@ -260,7 +260,7 @@ public class Player {
 
     private Treasure giveMeATreasure(){
         Random randomNum = new Random();
-        int num = randomNum.nextInt(hiddenTreasures.size()-1);
+        int num = randomNum.nextInt(hiddenTreasures.size());
         Treasure t= hiddenTreasures.get(num);
         this.hiddenTreasures.remove(num);
         return t;
