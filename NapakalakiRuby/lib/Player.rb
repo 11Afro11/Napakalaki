@@ -44,11 +44,11 @@ class Player
 	end
 
 	def incrementLevels(lvl)
-		@levels = @levels+lvl
+		@level = @level+lvl
 	end
 
 	def decrementLevels(lvl)
-		@levels = @levels-lvl
+		@level = @level-lvl
 	end
 
 	def setPendingBadConsequence(bad)
