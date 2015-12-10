@@ -86,22 +86,10 @@ public class Napakalaki{
 	}
 
 	public CombatResult developCombat(){
-		CombatResult combat;
-		Monster m = this.currentMonster;
-		int myLevel = this.currentPlayer.getLevel();
-		int monsterLevel = this.currentMonster.getCombatLevel();
-
-		if(myLevel > monsterLevel){
-			this.currentMonster.getPrice();
-			combat = CombatResult.WIN;
-		}
-		else{
-			this.currentMonster.getBc();
-			combat = CombatResult.LOSE;
-		}
-
-		this.dealer.giveMonsterBack(m);
-		return combat;
+		CombatResult combat=currentPlayer.Combat(currentMonster);
+                CardDealer dealer = CardDealer.getInstance();
+                dealer.giveMonsterBack(currentMonster);
+                return combat;
 	}
 
 	public void discardVisibleTreasures(ArrayList<Treasure> treasures){

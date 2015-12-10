@@ -186,16 +186,16 @@ public class Player {
     	return lvl;
     }
 
-    public CombatResult combat(Monster m){
+    public CombatResult Combat(Monster m){
         int myLevel = this.getCombatLevel();
         
-        CombatResult combat;
+        CombatResult combat = null;
         
         int monsterLevel = m.getCombatLevel();
         
         if(myLevel > monsterLevel){
             this.applyPrize(m);
-            if(this.level >= 10){
+            if(this.level >= Player.maxLevel){
                 combat = CombatResult.WINGAME;
             }
             else{
@@ -260,8 +260,11 @@ public class Player {
 
     private Treasure giveMeATreasure(){
         Random randomNum = new Random();
-        int num = randomNum.nextInt(hiddenTreasures.size());
-        return hiddenTreasures.get(num);
+        int num = randomNum.nextInt(hiddenTreasures.size()-1);
+        Treasure t= hiddenTreasures.get(num);
+        this.hiddenTreasures.remove(num);
+        return t;
+        
     }
 
     public boolean canISteal(){
