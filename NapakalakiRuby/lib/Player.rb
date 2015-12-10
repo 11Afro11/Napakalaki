@@ -63,7 +63,7 @@ class Player
       i = 0
       while i < nTreasures
         treasure = dealer.nextTreasure()
-        @hiddenTreasure.add(treasure)
+        @hiddenTreasure<<treasure
       end
     end
 	end
@@ -117,14 +117,14 @@ class Player
   end
   
 	def dieIfNoTreasures
-		if hiddenTreasures.isEmpty() && visibleTreasures.isEmpty()
+		if hiddenTreasures.empty? && visibleTreasures.empty?
 			return true 
     end
 		return false
 	end
 
 	def validState
-		if badStuff.isEmpty() && hiddenTreasures.size <= 4
+		if badStuff.empty? && hiddenTreasures.size <= 4
 			return true
     end
 		return false
@@ -147,7 +147,7 @@ class Player
 	end
 
 	def canYouGiveMeATreasure
-		if !hiddenTreasures.isEmpty() || !visibleTreasures.isEmpty()
+		if !hiddenTreasures.empty? || !visibleTreasures.empty?
 			return true
     end
 		return false
@@ -224,10 +224,10 @@ class Player
   def stealTreasure
     canI = sel.canISteal()
     if canI
-      canYou = @enemy.canYouGiveMeATreasure()
+      canYou = @enemy.canYouGiveMeATreasure
       if canYou
-        treasure = enemy.giveMeATreasure()
-        @hiddenTreasures.add(treasure)
+        treasure = enemy.giveMeATreasure
+        @hiddenTreasures<<treasure
         self.haveStolen()
         return treasure
       end
@@ -244,7 +244,7 @@ class Player
   end
   
   def canYouGiveMeAtreasure
-    return (!hiddenTreasures.isEmpty() || !visibleTreasures.isEmpty())
+    return (!hiddenTreasures.empty? || !visibleTreasures.empty?)
   end
   
   def haveStolen
@@ -266,15 +266,15 @@ class Player
     dice = Dice.getInstance()
     self.bringToLife()
     treasure = dealer.nextTreasure()
-    @hiddenTreasures.add(treasure)
+    @hiddenTreasures<<(treasure)
     number = dice.nextNumber()
     if number > 1
       treasure = dealer.nextTreasure()
-      @hiddenTreasures.add(treasure)
+      @hiddenTreasures<<(treasure)
     end 
     if number == 0
       treasure = dealer.nextTreasure()
-      @hiddenTreasures.add(treasure)
+      @hiddenTreasures<<(treasure)
     end
   end
   
