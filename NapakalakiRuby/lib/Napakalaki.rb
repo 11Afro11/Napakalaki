@@ -16,7 +16,6 @@ class Napakalaki
       @players = Array.new
       @carddealer = CardDealer.instance
       @firstPlayer = true
-      @indice_jugador = 0;
       @currentPlayer = Player.new("")
       @currentMonster = Monster.new("", 0, Prize.new(0, 0),
         BadConsequence.newLevelNumberOfTreasures("", 0, 0, 0))
@@ -27,7 +26,6 @@ class Napakalaki
 		names.each do |s|
 			players<<Player.new(s)
 		end
-
 	end
 
 	def nextPlayer
