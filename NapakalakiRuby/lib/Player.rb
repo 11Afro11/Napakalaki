@@ -239,7 +239,7 @@ class Player
     return hiddenTreasures.get(1+Random.rand(4))
   end
   
-  def canIsteal
+  def canISteal
     return false
   end
   
