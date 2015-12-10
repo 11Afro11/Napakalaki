@@ -206,7 +206,7 @@ class Player
   def initTreasure
     dealer = CardDealer.instance
     dice = Dice.instance
-    self.bringTiLife()
+    self.bringToLife()
     treasure = dealer.nextTreasure()
     hiddenTreasires << treasure
     number= dice.nextNumber()
