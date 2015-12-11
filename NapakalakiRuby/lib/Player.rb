@@ -96,7 +96,7 @@ module NapakalakiGame
 	      	else
 	        	i = 0
 	        	for m in @visibleTreasures
-	          		if m.getType.equals(TreasureKind::ONEHAND)
+	          		if m.getType.equal?(TreasureKind::ONEHAND)
 	            		i = i+1
 	          		end
 	        	end
