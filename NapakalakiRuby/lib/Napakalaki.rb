@@ -58,18 +58,18 @@ class Napakalaki
     @players.each do |p|
       begin
         r = rand(@players.length)
-      end while(r != @players.index(p))
+      end while(r == @players.index(p))
       p.setEnemy(@players.at(r))
-      end
+    end
 		
 	end
 
 	def developCombat
 		m = @currentMonster;
 		myLevel = @currentPlayer.getCombatLevel()
-		monsterLevel = @currentMonster.getCombatLevel();
+		monsterLevel = @currentMonster.getCombatLevel()
     
-    	combat = @currentPlayer.combat(m);
+    	combat = @currentPlayer.combat(m)
     	return combat
     
 	end
