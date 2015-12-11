@@ -159,7 +159,9 @@ module NapakalakiGame
 		end
 
 		def setEnemy(enemy)
-			@enemy.copy(enemy)
+			p = Player.new("")
+      p.copia(enemy)
+      @enemy = p
 		end
 
 		def haveStolen
