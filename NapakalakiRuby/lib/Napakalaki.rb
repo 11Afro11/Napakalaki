@@ -54,10 +54,13 @@ class Napakalaki
 	end
 
 	def setEnemies
-		total_players = @players.length
-		while enemie == @currentPLayer do
-      enemie = rand(total_players)
-    end
+    r = 0
+    @players.each do |p|
+      begin
+        r = rand(@players.length)
+      end while(r != @players.index(p))
+      p.setEnemy(@players.at(r))
+      end
 		
 	end
 
