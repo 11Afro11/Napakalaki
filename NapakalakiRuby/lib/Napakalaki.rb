@@ -21,6 +21,17 @@ class Napakalaki
         BadConsequence.newLevelNumberOfTreasures("", 0, 0, 0))
       @currentPlayerIndex = -1
     end
+   
+  def copia(p)
+      @name = p.name
+      @level = p.level
+      @dead = p.dead
+      @canSteal = p.canSteal
+      @enemy = p.enemy
+      @hiddenTreasures =p.hiddenTreasures
+      @visibleTreasures = p.visibleTreasures
+      @badStuff = p.badStuff
+    end
 
 	def initPlayers(names)
 		names.each do |s|
@@ -96,6 +107,7 @@ class Napakalaki
 
 	def initGame(players)
 		initPlayers(players)
+    setEnemies
 		@carddealer.initCards
 		nextTurn				
 	end
