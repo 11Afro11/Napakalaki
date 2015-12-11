@@ -38,7 +38,6 @@ class Napakalaki
 
 	def initPlayers(names)
 		names.each do |s|
-			puts s
 			@players<<Player.new(s)
 		end
 	end
@@ -58,7 +57,7 @@ class Napakalaki
  	end
 
 	def nextTurnAllowed
-		if (@currentPlayer == nil) then
+		if (@currentPlayer == nil)
 			allowed = true
 		else
 			allowed =@currentPlayer.validState
@@ -90,7 +89,7 @@ class Napakalaki
 
 	def discardVisibleTreasures(treasure)
 		treasure.each do |t|
-			@currentPlayer.discardVisibleTreasures(t)
+			@currentPlayer.discardVisibleTreasure(t)
 			@carddealer.giveTreasureBack(t)
 		end		
 	end

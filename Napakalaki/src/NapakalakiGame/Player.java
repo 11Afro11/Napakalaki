@@ -54,10 +54,16 @@ public class Player {
 
     private void incrementLevels(int i){
     	level += i;
+        if(level > 10){
+            level = 10;
+        }
     }
 
     private void decrementLevels(int i){
     	level -= i;
+        if(level < 1){
+            level = 1;
+        }
     }
 
     private void setPendingBadConsequence(BadConsequence b){

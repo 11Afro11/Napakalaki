@@ -63,9 +63,16 @@ module NapakalakiGame
 		end
 
 		def decrementLevels(lvl)
-			@level = @level-lvl
-			if @level < 1
-				level = 1
+			# @level = @level-lvl
+			# if (@level < 1)
+			# 	puts "teta"
+			# 	level = 1
+			# end
+			puts "pene"
+			if (lvl >= @level)
+				@level = 1
+			else
+				@level = @level - lvl
 			end
 		end
 
@@ -74,15 +81,17 @@ module NapakalakiGame
 		end
 
 		def applyPrize(monstruo)
-			nLevels = monstruo.getLevelsGained()
+			prize = monstruo.getPrize
+			nlevels = prize.getLevels
 			self.incrementLevels(nlevels)
-			nTreasures = monstruo.getTreasuresGained()
+			nTreasures = prize.getTreasures
 			if nTreasures > 0
 				dealer = CardDealer.instance
 				i = 0
 				while i < nTreasures
 					treasure = dealer.nextTreasure()
-					@hiddenTreasure<<treasure
+					@hiddenTreasures<<treasure
+					i = i+1
 				end
 			end
 		end
@@ -144,10 +153,11 @@ module NapakalakiGame
 		end
 
 		def validState
-			if !(badStuff == nil) && hiddenTreasures.size <= 4
-				return true
+			validState = false
+			if badStuff.isEmpty && hiddenTreasures.size <= 4
+				validState = true
 	    	end
-			return false
+			return validState
 		end	
 
 		def howManyVissibleTreasures
@@ -160,8 +170,8 @@ module NapakalakiGame
 
 		def setEnemy(enemy)
 			p = Player.new("")
-      p.copia(enemy)
-      @enemy = p
+		    p.copia(enemy)
+		    @enemy = p
 		end
 
 		def haveStolen
@@ -216,16 +226,16 @@ module NapakalakiGame
 
 		def discardVisibleTreasure(t)
 			visibleTreasures.delete(t)
-			if !pendingBad.nil && !pendingBad.empty
-				pendingBad.substractVisibleTreasure(t)
+			if @badStuff != nil && !@badStuff.isEmpty
+				@badStuff.substractVisibleTreasure(t)
 			end
 			dieIfNoTreasures()
 		end
 
 		def discardHiddenTreasure(t)
 			hiddenTreasures.delete(t)
-			if !pendingBad.nil && !pendingBad.empty
-				pendingBad.substracthiddenTreasure(t)
+			if @badStuff != nil && !@badStuff.isEmpty
+				@badStuff.substracthiddenTreasure(t)
 			end
 			dieIfNoTreasures()
 		end
@@ -281,7 +291,7 @@ module NapakalakiGame
 
 		def discardAllTreasures
 			for t in @visibleTreasures
-				self.discardVsisibleTreasure(t)
+				self.discardVsibleTreasure(t)
 			end
 
 			for t in @hiddenTreasures

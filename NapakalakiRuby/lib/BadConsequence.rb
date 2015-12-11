@@ -58,14 +58,15 @@ module NapakalakiGame
     end
     
     def substractVisibleTreasure(t)
-      self.specificVisibleTreasure.remove(t.getType)
+      @tVisibleTreasure.remove(t.getType)
     end
     
     def substractHiddenTreasure(t)
-      self.specificHiddenTreasure.remove(t.getType)
+      @tHiddenTreasure.remove(t.getType)
     end
     
     def adjustToFitTreasureLists(vt, ht)
+    	bd = BadConsequence.newLevelNumberOfTreasures("", 0,0,0)
       if(@nHiddenTreasures != 0 || @nVisibleTreasures != 0)
         if(vt.size() <= @nVisibleTreasures)
           nv = vt.size()
@@ -94,7 +95,7 @@ module NapakalakiGame
       "#{@text}"
     end 
     
-    def isEmpty()
+    def isEmpty
       empty = false
       if(@levels == 0 && nVisibleTreasures == 0 && nHiddenTreasures ==0 && death == false && tVisibleTreasures.empty? && tHiddenTreasures.empty?) then
         empty = true

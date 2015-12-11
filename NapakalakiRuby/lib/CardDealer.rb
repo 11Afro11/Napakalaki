@@ -161,7 +161,7 @@ module NapakalakiGame
 
 	def nextTreasure
       if @unused_treasures.nil?
-        @used_treasures.each do |t|4
+        @used_treasures.each do |t|
           @unused_treasures<<t
         end
 
