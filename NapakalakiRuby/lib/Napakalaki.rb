@@ -55,7 +55,9 @@ class Napakalaki
 
 	def setEnemies
 		total_players = @players.length
-		enemie = rand(total_players)
+		while enemie == @currentPLayer do
+      enemie = rand(total_players)
+    end
 		
 	end
 

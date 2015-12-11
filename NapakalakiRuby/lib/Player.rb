@@ -236,7 +236,7 @@ module NapakalakiGame
 		end
 
 		def stealTreasure
-			canI = sel.canISteal()
+			canI = self.canISteal()
 			if canI
 				canYou = @enemy.canYouGiveMeATreasure
 				if canYou
