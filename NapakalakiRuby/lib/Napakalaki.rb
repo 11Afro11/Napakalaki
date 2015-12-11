@@ -16,31 +16,33 @@ class Napakalaki
       @players = Array.new
       @carddealer = CardDealer.instance
       @firstPlayer = true
-      @currentPlayer = Player.new("")
+      @currentPlayer = nil
       @currentMonster = Monster.new("", 0, Prize.new(0, 0),
         BadConsequence.newLevelNumberOfTreasures("", 0, 0, 0))
       @currentPlayerIndex = -1
     end
 
 	def initPlayers(names)
-		@players = Array.new
 		names.each do |s|
-			players<<Player.new(s)
+			puts s
+			@players<<Player.new(s)
 		end
 	end
 
 	def nextPlayer
 		total_p = @players.length
 
-		if(@currentPlayerIndex == -1) then
-			next_index = rand(total_p)
-    else
-      @currentPlayerIndex = (@currentPlayerIndex +1) % total_p
-      @currentPlayer = @players.at(@currentPlayerIndex)
-    end
+		if(@currentPlayerIndex == -1)
+			@currentPlayerIndex = rand(total_p)
+	    else
+			@currentPlayerIndex = (@currentPlayerIndex +1) % total_p
+			
+		end
+		@currentPlayer = @players.at(@currentPlayerIndex)
       
-      return @currentPlayer
-  end
+		return @currentPlayer
+ 	end
+
 	def nextTurnAllowed
 		if (@currentPlayer == nil) then
 			allowed = true
@@ -67,14 +69,14 @@ class Napakalaki
     
 	end
 
-	def discardVisibleTreasures(treasure)
+	def discardVisibleTreasure(treasure)
 		treasure.each do |t|
 			@currentPlayer.discardVisibleTreasures(t)
 			@carddealer.giveTreasureBack(t)
 		end		
 	end
 
-	def discardHiddenTreasures(treasure)
+	def discardHiddenTreasure(treasure)
 		treasure.each do |t|
 			@currentPlayer.discardHiddenTreasure(t)
 			@carddealer.giveTreasureBack(t)
@@ -89,7 +91,7 @@ class Napakalaki
 
 	def initGame(players)
 		initPlayers(players)
-		carddealer.initCards
+		@carddealer.initCards
 		nextTurn				
 	end
 
@@ -106,11 +108,11 @@ class Napakalaki
 	def nextTurn
 		allowed = nextTurnAllowed
 
-		if allowed then
+		if allowed
 			@currentMonster = @carddealer.nextMonster
 			@currentPlayer = nextPlayer
 			dead = @currentPlayer.isDead
-			if dead then
+			if dead
 				@currentPlayer.initTreasure
 			end
 		end
