@@ -4,8 +4,11 @@
 
 require_relative "CardDealer.rb"
 require_relative "Player.rb"
+
 require "singleton"
+
 module NapakalakiGame
+
 class Napakalaki
 	include Singleton
 
@@ -107,7 +110,7 @@ class Napakalaki
 
 	def initGame(players)
 		initPlayers(players)
-    setEnemies
+    	setEnemies
 		@carddealer.initCards
 		nextTurn				
 	end
