@@ -159,11 +159,56 @@ public class CardDealer {
         prize = new Prize(1, 1);
         unusedMonster.add(new Monster("El Lenguas", 20, prize, badConsequence));
 
+                /**********************************************************Monstruos con Sectarios**********************************************************/
+
+        badConsequence = new BadConsequence("Pierdes una mano visible", 0, new ArrayList(Arrays.asList(TreasureKind.ONEHAND)), new ArrayList());
+        prize = new Prize(3, 1);
+        unusedMonster.add(new Monster("El mal indecible inpronunciable", 10, prize, badConsequence, -2));
+
+        badConsequence = new BadConsequence("Pierdes tus tesoreos visibles. Jajaja", 0, Integer.MAX_VALUE, 0);
+        prize = new Prize(2, 1);
+        unusedMonster.add(new Monster("Testigos Oculares", 6, prize, badConsequence, +2));
+
+        badConsequence = new BadConsequence("Hoy no es tu dia de suerte. Mueres", true);
+        prize = new Prize(2, 5);
+        unusedMonster.add(new Monster("El gran Cthulhu", 20, prize, badConsequence, +4));
+
+        badConsequence = new BadConsequence("Tu gobierno te recorta 2 niveles", 2, 0, 0);
+        prize = new Prize(2, 1);
+        unusedMonster.add(new Monster("Serpiente Politico", 8, prize, badConsequence, -2));
+
+        badConsequence = new BadConsequence("Pierdes tu casco y tu armadura visible. Pierdes tus manos ocultas", 0, new ArrayList(Arrays.asList(
+          TreasureKind.HELMET, TreasureKind.ARMOR)), new ArrayList(Arrays.asList(TreasureKind.BOTHHANDS, TreasureKind. ONEHAND)));
+        prize = new Prize(1, 1);
+        unusedMonster.add(new Monster("Felpugoth", 2, prize, badConsequence, +5));
+
+        badConsequence = new BadConsequence("Pierdes dos niveles", 2, 0, 0);
+        prize = new Prize(4, 2);
+        unusedMonster.add(new Monster("Shoggoth", 16, prize, badConsequence, -4));
+
+        badConsequence = new BadConsequence("Pintalabios negro. Pierdes dos niveles", 2, 0, 0);
+        prize = new Prize(1, 1);
+        unusedMonster.add(new Monster("Lolitagooth", 2, prize, badConsequence, +3));
 	}
+
         
         private void initCultistCardDeck(){
-        
+
+            cultistDeck.add( new Cultist("Sectario: +1 por cada sectario en juego. No puedes dejar de ser sectario", 1));
+
+            cultistDeck.add( new Cultist("Sectario: +2 por cada sectario en juego. No puedes dejar de ser sectario", 2));
+
+            cultistDeck.add( new Cultist("Sectario: +1 por cada sectario en juego. No puedes dejar de ser sectario", 1));
+
+            cultistDeck.add( new Cultist("Sectario: +2 por cada sectario en juego. No puedes dejar de ser sectario", 2));
+
+            cultistDeck.add( new Cultist("Sectario: +1 por cada sectario en juego. No puedes dejar de ser sectario", 1));
+
+            cultistDeck.add( new Cultist("Sectario: +1 por cada sectario en juego. No puedes dejar de ser sectario", 1));
+
+            shuffleCultist();
         }
+
 
 	private void shuffleTreasures(){
             Collections.shuffle(this.unusedTreasures);
