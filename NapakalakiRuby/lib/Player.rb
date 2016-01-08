@@ -6,6 +6,7 @@ require_relative "Treasure.rb"
 require_relative "Dice.rb"
 require_relative "TreasureKind.rb"
 require_relative "CombatResult.rb"
+require_relative "CardDealer.rb"
 module NapakalakiGame
 
 	class Player
@@ -33,6 +34,17 @@ module NapakalakiGame
 			@visibleTreasures = p.visibleTreasures
 			@badStuff = p.badStuff
 		end
+
+		#EXAMEN
+
+		def setHiddenTreasures(tesoros)
+			hiddenTreasures.clear
+			tesoros.each do |t|
+				hiddenTreasures << t
+			end
+		end
+
+		#FINEXAMEN
 
 		def getName
 			@name
@@ -194,6 +206,20 @@ module NapakalakiGame
 	  	end
 	  
 	  	def combat(m)
+	  		#EXAMEN
+
+	  		dealer= CardDealer.instance
+	  		dice = Dice.instance
+	  		r = dice.nextNumber
+	  		if r > 2
+	  			rm = dealer.getRandomMonster
+	  			if rm != nil
+	  				m = rm
+	  			end
+	  		end
+
+	  		#FINEXAMEN
+
 	    	myLevel = self.getCombatLevel()
 	    	monsterLevel = m.getCombatLevel()
 	    	if myLevel > monsterLevel
@@ -290,9 +316,9 @@ module NapakalakiGame
 		end
 
 		def discardAllTreasures
-			for t in @visibleTreasures
+			for t in @visibleTreasuresx
 				self.discardVsibleTreasure(t)
-			end
+			endg
 
 			for t in @hiddenTreasures
 				self.discardHiddenTreasure(t)
@@ -322,4 +348,5 @@ module NapakalakiGame
 		end
 
 	end
+end
 end

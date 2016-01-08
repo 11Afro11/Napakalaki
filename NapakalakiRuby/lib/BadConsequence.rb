@@ -2,6 +2,8 @@
 # To change this license header, choose License Headers in Project Properties.
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
+require_relative "TreasureKind.rb"
+require_relative "Treasure.rb"
 module NapakalakiGame
   class BadConsequence
     attr_accessor :text, :levels, :nVisibleTreasures, :nHiddenTreasures, :death, :tVisibleTreasures, :tHiddenTreasures
@@ -24,6 +26,30 @@ module NapakalakiGame
     def self.newLevelSpecificTreasures(text, someLevels, someSpecificVisibleTreasures, someSpecificHiddenTreasures)
       new(text, someLevels, 0, 0, someSpecificVisibleTreasures, someSpecificHiddenTreasures, false)
     end
+
+    #EXAMEN
+    def self.newOnehandAndHiddenShoe(text, someSpecificVisibleTreasures, someSpecificHiddenTreasures)
+    	loseVisible = Array.new
+    	loseShoe = Array.new
+    	someSpecificVisibleTreasures.each do |vt|
+    		tipo = vt.getType
+    		if tipo == TreasureKind::ONEHAND || tipo == TreasureKind::BOTHHANDS
+    			loseVisible << vt
+    		end
+    	end
+
+    	someSpecificHiddenTreasures.eac do |vh|
+    		tipo = vt.getType
+    		if tipo == TreasureKind::SHOES
+    			loseShoe << vh
+    		end
+    	end
+
+    	new(text, 0, 0, 0, loseVisible, loseShoe, false)
+    end
+
+    #FINEXAMEN
+
     
     def self.newDeath(text)
       new(text, 0, 0, 0, Array.new, Array.new, true)

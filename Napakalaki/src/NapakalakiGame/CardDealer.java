@@ -19,6 +19,7 @@ public class CardDealer {
         private ArrayList<Monster> usedMonster= new ArrayList();
         private ArrayList<Treasure> usedTreasures= new ArrayList();
         private ArrayList<Monster> unusedMonster= new ArrayList();
+        private ArrayList<Cultist> cultistDeck= new ArrayList();
         
         
 
@@ -159,6 +160,10 @@ public class CardDealer {
         unusedMonster.add(new Monster("El Lenguas", 20, prize, badConsequence));
 
 	}
+        
+        private void initCultistCardDeck(){
+        
+        }
 
 	private void shuffleTreasures(){
             Collections.shuffle(this.unusedTreasures);
@@ -167,6 +172,10 @@ public class CardDealer {
 	private void shuffleMonsters(){
             Collections.shuffle(this.unusedMonster);
 	}
+        
+        private void shuffleCultist(){
+            Collections.shuffle(this.cultistDeck);
+        }
 
 	public static CardDealer getInstance(){
 		if(instance == null){
@@ -206,6 +215,14 @@ public class CardDealer {
             this.unusedMonster.remove(m);
             return m;
         }
+        
+        public Cultist nextCultist(){
+            Cultist c;
+            c = cultistDeck.get(0);
+            cultistDeck.remove(0);
+            return c;
+            
+        }
 
         public void giveTreasureBack(Treasure t){
             this.usedTreasures.add(t);
@@ -220,6 +237,9 @@ public class CardDealer {
             this.initMonsterCardDeck();
             this.shuffleMonsters();
             this.shuffleTreasures();
+            this.shuffleCultist();
 
         }
+
+   
 }

@@ -211,5 +211,16 @@ module NapakalakiGame
 	    initMonsterCardDeck
 	    shuffleMonster
 	end
+#EXAMEN
+
+	def getRandomUsedMonster()
+		if used_monster.nil?
+			return nil
+		else
+			num = rand(used_monster.size)
+			return used_monster[num]
+		end
+	end
+#FINEXAMEN
   end
 end

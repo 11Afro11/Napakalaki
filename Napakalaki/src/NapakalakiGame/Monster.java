@@ -14,10 +14,12 @@ public class Monster {
     private int combatLevel;   
     private Prize price;
     private BadConsequence bc;
+    private int levelChangeAgainstCultistPlayer;
     
     public Monster(String name, int combatLevel){
         this.name = name;
         this.combatLevel = combatLevel;
+        levelChangeAgainstCultistPlayer = 0;
     }
 
     public Monster(String name, int combatLevel, Prize price, BadConsequence bc) {
@@ -25,6 +27,15 @@ public class Monster {
         this.combatLevel = combatLevel;
         this.price = price;
         this.bc = bc;
+        levelChangeAgainstCultistPlayer = 0;
+    }
+    
+    public Monster(String name, int combatLevel, Prize price, BadConsequence bc, int lev) {
+        this.name = name;
+        this.combatLevel = combatLevel;
+        this.price = price;
+        this.bc = bc;
+        levelChangeAgainstCultistPlayer = lev;
     }
     
     public void setName(String name) {
@@ -70,5 +81,13 @@ public class Monster {
     
     public int getTreasuresGained(){
         return price.getTreasures();
+    }
+
+    int getSpecialValue() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public int getCombatLevelAgainstCultist(){
+        return getCombatLevel() + levelChangeAgainstCultistPlayer;
     }
 }

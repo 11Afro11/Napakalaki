@@ -116,7 +116,7 @@ public class Player {
         canISteal = false;
     }
 
-    private boolean canYouGiveMeATreasure(){
+    boolean canYouGiveMeATreasure(){
         return !hiddenTreasures.isEmpty() || !visibleTreasures.isEmpty();
     }
 
@@ -182,7 +182,7 @@ public class Player {
         return visibleTreasures;
     }
     
-    private int getCombatLevel(){
+    public int getCombatLevel(){
     	int lvl = this.level;
 
     	for(Treasure t : this.visibleTreasures){
@@ -197,7 +197,7 @@ public class Player {
         
         CombatResult combat = null;
         
-        int monsterLevel = m.getCombatLevel();
+        int monsterLevel = this.getOponentLevel(m);
         
         if(myLevel > monsterLevel){
             this.applyPrize(m);
@@ -212,8 +212,12 @@ public class Player {
             combat = CombatResult.LOSE;
             
             boolean amIDead = m.getBc().getDeath();
+            
+            if(this.shouldConvert()){
+                combat = CombatResult.LOSEANDCONVERT;
+            }
 
-            if(amIDead){
+            else if(amIDead){
                 this.dead = true;                    
             }
             else{
@@ -264,7 +268,7 @@ public class Player {
         return treasure;
     }
 
-    private Treasure giveMeATreasure(){
+    Treasure giveMeATreasure(){
         Random randomNum = new Random();
         int num = randomNum.nextInt(hiddenTreasures.size());
         Treasure t= hiddenTreasures.get(num);
@@ -308,6 +312,28 @@ public class Player {
             treasure = dealer.nextTreasure();
             hiddenTreasures.add(treasure);
         }
+    }
+
+    public int computeGoldCoinsValue(ArrayList<Treasure> t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    int getOponentLevel(Monster m){
+        return m.getCombatLevel();
+    }
+    
+    protected boolean shouldConvert(){
+        Dice dice = Dice.getInstance();
+        if(dice.nextNumber() == 1){
+            return true;
+        }
+        else{
+            return false;
+        }
+    } 
+    
+    protected Player getEnemy(){
+        return enemy;
     }
 }
 

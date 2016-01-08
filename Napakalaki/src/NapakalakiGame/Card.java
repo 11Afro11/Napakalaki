@@ -7,12 +7,9 @@ package NapakalakiGame;
 
 /**
  *
- * @author david
+ * @author braulio
  */
-public enum CombatResult {
-    	WINGAME,
-	WIN,
-	LOSE,
-        LOSEANDCONVERT,
+public interface Card {
+    public int getBasicValue();
+    public int getSpecialValue();
 }
-
