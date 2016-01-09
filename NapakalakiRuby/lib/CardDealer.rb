@@ -20,6 +20,8 @@ module NapakalakiGame
       @used_treasures = Array.new
       @used_monster = Array.new
       @unused_monster = Array.new
+      @unused_cultist = Array.new
+      
     end
     
 	def initTreasureCardDeck      
@@ -143,17 +145,60 @@ module NapakalakiGame
         prize = Prize.new(1, 1)
         badConsequence = BadConsequence.newLevelNumberOfTreasures("Menudo susto te llevas. Pierdes 2 niveles y 5 tesoros visibles", 2, 5, 0)
         unused_monster<< Monster.new("El Lenguas", 20, prize, badConsequence)
+        
+        #**********************************************************Monstruos con Sectarios**********************************************************#
+
+        prize = Prize.new(3, 1)
+        badConsequence = BadConsequence.newLevelSpecificTreasures("Pierdes una mano visible", 0, 2, 0)
+        unused_monster << Monster.new("El mal indecible impronunciable", 10, prize, badConsequence, -2)
+
+        prize = Prize.new(2, 1)
+        badConsequence = BadConsequence.newLevelSpecificTreasures("Pierdes tus tesoros visibles. Jajaja", 0, nil, 0)
+        unused_monster << Monster.new("Testigos Oculares", 6, prize, badConsequence, +2)
+
+        prize = Prize.new(2, 5)
+        badConsequence = BadConsequence.newDeath("Hoy no es tu dia de suerte. Mueres", true)
+        unused_monster << Monster.new("El gran Cthulhu", 20, prize, badConsequence, +4)
+
+        prize = Prize.new(2, 1)
+        badConsequence = BadConsequence.newLevelNumberOfTreasures("Tu gobierno te recorta 2 niveles", 2, 0, 0)
+        unused_monster << Monster.new("Serpiente Politico", 8, prize, badConsequence, -2)
+
+        prize = Prize.new(1, 1)
+        badConsequence = BadConsequence.newLevelSpecificTreasures("Pierdes tu casco y tu armadura visible. Pierdes tus manos ocultas", 0, [TreasureKind::HELMET, TreasureKind::ARMOR], nil)
+        unused_monster << Monster.new("Felpuggoth", 2, prize, badConsequence, +5)
+
+        prize = Prize.new(4, 2)
+        badConsequence = BadConsequence.newLevelNumberOfTreasures("Pierdes dos niveles", 2, 0, 0)
+        unused_monster << Monster.new("Shoggoth", 16, prize, badConsequence, -4)
+
+        prize = Prize.new(1, 1)
+        badConsequence = BadConsequence.newLevelNumberOfTreasures("Pintalabios negro. Pierdes 2 niveles", 2, 0, 0)
+        unused_monster << Monster.new("Lolitagooth", 2, prize, badConsequence, +3)
 	end
 
 	def shuffleTreasures
       @unused_treasures = @unused_treasures.shuffle
 
 	end
+  
+  def initCultistCardDeck
+    @unused_cultist << Cultist.new("Sectario: +1 por cada sectario en juego. No puedes dejar de ser sectario.", 1)
+    @unused_cultist << Cultist.new("Sectario: +2 por cada sectario en juego. No puedes dejar de ser sectario.", 2)
+    @unused_cultist << Cultist.new("Sectario: +1 por cada sectario en juego. No puedes dejar de ser sectario.", 1)
+    @unused_cultist << Cultist.new("Sectario: +2 por cada sectario en juego. No puedes dejar de ser sectario.", 2)
+    @unused_cultist << Cultist.new("Sectario: +1 por cada sectario en juego. No puedes dejar de ser sectario.", 1)
+    @unused_cultist << Cultist.new("Sectario: +1 por cada sectario en juego. No puedes dejar de ser sectario.", 1)
+  end
 
 	def shuffleMonster
       @unused_monster = @unused_monster.shuffle
 
 	end
+  
+  def suffleCultist
+    @unused_cultist = @unused_cultist.shuffle
+  end
 
 	def getInstance
 		@instance
@@ -210,6 +255,9 @@ module NapakalakiGame
 	    
 	    initMonsterCardDeck
 	    shuffleMonster
+      
+    initCultistCardDeck
+    shuffleCultist
 	end
 #EXAMEN
 

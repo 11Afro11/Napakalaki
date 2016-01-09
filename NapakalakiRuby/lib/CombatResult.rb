@@ -6,5 +6,6 @@ module NapakalakiGame
 		WINGAME=:wingame
 		WIN=:win
 		LOSE=:lose
+    LOSEANDCONVERT=:LOSEANDCONVERT
 	end
 end
