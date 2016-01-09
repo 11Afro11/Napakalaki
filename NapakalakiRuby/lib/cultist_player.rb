@@ -32,7 +32,7 @@ class CultistPlayer < PLayer
   end
   
   def oponentLevel
-    return 
+    return  #COMPLETAR
   end
 end
 end
