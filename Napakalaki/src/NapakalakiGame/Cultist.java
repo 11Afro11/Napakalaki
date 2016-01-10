@@ -9,7 +9,7 @@ package NapakalakiGame;
  *
  * @author braulio
  */
-public class Cultist implements Card {
+public class Cultist {
     private String name;
     private int gainedLevels;
     

@@ -37,6 +37,10 @@ module NapakalakiGame
       @bc
     end
     
+    def getCombatLevelAgainstCultistPlayer
+      return getCombatLevel() + @levelChangeAgainstCultistPlayer
+    end
+    
     def to_s
       "Nombre: #{@name} Nivel: #{@combatLevel} Precio: #{@prize} Bad Consequence: #{@bc}"
     end

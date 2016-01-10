@@ -206,22 +206,8 @@ module NapakalakiGame
 	  	end
 	  
 	  	def combat(m)
-	  		#EXAMEN
-
-	  		dealer= CardDealer.instance
-	  		dice = Dice.instance
-	  		r = dice.nextNumber
-	  		if r > 2
-	  			rm = dealer.getRandomMonster
-	  			if rm != nil
-	  				m = rm
-	  			end
-	  		end
-
-	  		#FINEXAMEN
-
 	    	myLevel = self.getCombatLevel()
-	    	monsterLevel = m.getCombatLevel()
+	    	monsterLevel = self.getOponentLevel(m)
 	    	if myLevel > monsterLevel
 	      		self.applyPrize(m)
 	      	if@level >= 10
@@ -230,6 +216,9 @@ module NapakalakiGame
 	        	combatResult = CombatResult::WIN
 	      	end
 	    	else
+          if self.shoulConvert
+            combatResult = CombatResult::LOSEANDCONVERT
+          else
 	      		combatResult = CombatResult::LOSE
 	      		amIdead = m.getBadConsequence().getDeath();
 	      		if(amIdead)
@@ -238,6 +227,7 @@ module NapakalakiGame
 	        		bad = m.getBadConsequence()
 	        		self.applyBadConsequence(bad)
 	      		end
+          end
 	    	end
 	    	return combatResult
 	  	end
@@ -318,7 +308,7 @@ module NapakalakiGame
 		def discardAllTreasures
 			for t in @visibleTreasuresx
 				self.discardVsibleTreasure(t)
-			endg
+			end
 
 			for t in @hiddenTreasures
 				self.discardHiddenTreasure(t)
@@ -341,12 +331,24 @@ module NapakalakiGame
 				@hiddenTreasures<<(treasure)
 			end
 		end
-
+    
+    def shouldConvert
+      dice = Dice.instance
+      
+      if dice.nextNumber == 0
+        return true
+      else
+        return false
+      end
+    end
+      
+    def getOponentLevel(m)
+      retun m.getCombatLevel
+    end
 
 		def to_s
 			"Nombre: #{@name}, Nivel:#{@level}"
 		end
 
 	end
-end
 end

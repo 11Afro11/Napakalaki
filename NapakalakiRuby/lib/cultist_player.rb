@@ -31,8 +31,24 @@ class CultistPlayer < PLayer
     return false
   end
   
-  def oponentLevel
-    return  #COMPLETAR
+  def getCombatLevel
+    lvl = super.getCombatLevel
+    lvl = ((lvl * 20)/100) + total_pCultist * myCultistCard.getGainedLevels
+    return lvl
+  end
+  
+  def getOponentLevel(m)
+      retun m.getCombatLevelAgainstCultistPlayer
+  end
+  
+  def giveMeATreasure
+			return visibleTreasures.get(1+Random.rand(4))
+	end
+  def canYouGiveMeATreasure
+    if !hiddenTreasures.empty? || !visibleTreasures.empty?
+      return true
+      end
+    return false
   end
 end
 end

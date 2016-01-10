@@ -78,12 +78,16 @@ class Napakalaki
 	end
 
 	def developCombat
-		m = @currentMonster;
-		myLevel = @currentPlayer.getCombatLevel()
-		monsterLevel = @currentMonster.getCombatLevel()
-    
-    	combat = @currentPlayer.combat(m)
-    	return combat
+		combatResult = @currentPlayer.combat(@currentMonster)
+    if combatResult == CombatResult::LOSEANDCONVERT 
+      cultist = @dealer.nextCultist
+      cultistPlayer = cultist.new(@currentPlayer, cultist)
+      @players.insert(@currentPlayerIndex, cultistPlayer)
+      @players.delete(@currentPlayer)
+      @currentPlayer = cultistPlayer
+    end
+    @dealer.giveMonsterBack(@currentMonster)
+    return combatResult
     
 	end
 
