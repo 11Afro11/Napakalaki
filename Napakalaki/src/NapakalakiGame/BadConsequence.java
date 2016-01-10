@@ -9,7 +9,7 @@ import java.util.ArrayList;
  *
  * @author afro
  */
-public class BadConsequence {
+public abstract class BadConsequence {
     private String text;
     private int levels;
     private int nVisibleTreasures;
@@ -70,6 +70,14 @@ public class BadConsequence {
         return text;
     }
     
+    ArrayList<TreasureKind> getSpecificHiddenTreasures(){
+        return specificHiddenTreasure;
+    }
+    
+    ArrayList<TreasureKind> getSpecificVisibleTreasures(){
+        return specificVisibleTreasure;
+    }
+    
     int getLevels(){
         return levels;
     }
@@ -94,11 +102,11 @@ public class BadConsequence {
     }
     
     void substractVisibleTreasure(Treasure t){
-        this.specificVisibleTreasure.remove(t.getType());
+        
     }
     
     void substractHiddenTreasure(Treasure t){
-        this.specificHiddenTreasure.remove(t.getType());
+        
     }
     
     public String toString(){
@@ -106,37 +114,7 @@ public class BadConsequence {
     } 
 
     BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> vt, ArrayList<Treasure> ht) {
-        ArrayList<TreasureKind> tvisible = new ArrayList(vt);
-        ArrayList<TreasureKind> thidden = new ArrayList(ht);
-        
-        int nv = 0; 
-        int nh = 0;
-        
-        BadConsequence bd = new BadConsequence("",0,0,0);
-        
-        if(this.nHiddenTeasures != 0 || this.nVisibleTreasures != 0){
-            if(vt.size() <= nVisibleTreasures){
-                nv = vt.size();
-            }
-            else
-                nv = nVisibleTreasures;
-            
-            if(ht.size() <= nHiddenTeasures){
-                nh = ht.size();
-            }
-            else
-                nh = nVisibleTreasures;
-            
-            bd = new BadConsequence(this.text, this.levels, nv,nh);
-        }
-        
-        else if(!this.specificVisibleTreasure.isEmpty() || !this.specificHiddenTreasure.isEmpty()){
-            tvisible.retainAll(specificVisibleTreasure);
-            thidden.retainAll(specificHiddenTreasure);
-            bd = new BadConsequence(this.text, this.levels, tvisible,thidden);
-            
-        }
-        return bd;
+        return this;
     }
 
     

@@ -21,7 +21,7 @@ public class Player {
     private Player enemy;
     private ArrayList<Treasure> hiddenTreasures = new ArrayList();
     private ArrayList<Treasure> visibleTreasures = new ArrayList();
-    private BadConsequence badStuff = new BadConsequence("", 0 ,0, 0);
+    private BadConsequence badStuff;
     static int maxLevel = 10;
 
     Player(String name){
