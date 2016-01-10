@@ -7,6 +7,7 @@ require_relative "Prize.rb"
 require_relative "TreasureKind.rb"
 require_relative "BadConsequence.rb"
 require_relative "Monster.rb"
+require_relative "cultist"
 
 module NapakalakiGame
 
