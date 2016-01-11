@@ -7,6 +7,7 @@ require_relative "Dice.rb"
 require_relative "TreasureKind.rb"
 require_relative "CombatResult.rb"
 require_relative "CardDealer.rb"
+require_relative "numeric_bad_consequence.rb"
 module NapakalakiGame
 
 	class Player

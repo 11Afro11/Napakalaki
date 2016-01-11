@@ -22,7 +22,7 @@ class Napakalaki
       @carddealer = CardDealer.instance
       @firstPlayer = true
       @currentPlayer = nil
-      @currentMonster = Monster.new("", 0, Prize.new(0, 0),NumericBadConsequence("", 0, 0, 0), 0)
+      @currentMonster = Monster.new("", 0, Prize.new(0, 0),NumericBadConsequence.new("", 0, 0, 0), 0)
       @currentPlayerIndex = -1
     end
    
