@@ -4,6 +4,7 @@
 
 require_relative "CardDealer.rb"
 require_relative "Player.rb"
+require_relative "numeric_bad_consequence.rb"
 
 
 require "singleton"
