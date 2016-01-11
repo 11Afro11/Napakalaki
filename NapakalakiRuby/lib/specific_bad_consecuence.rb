@@ -8,7 +8,7 @@ module NapakalakiGame
     attr_accessor :text, :levels, :nVisible, :nHidden, :death, :specificHiddenTreasures, :specificVisibleTreasures
     
     def initialize(text, levels ,nVisibleTreasures, nHiddenTreasures, death, specificHiddenTreasures, specificVisibleTreasures)
-      super.newLevelSpecificTreasures(text, levels, nVisibleTreasures, nHiddenTreasures, death, specificHiddenTreasures)
+      super(text, levels ,nVisibleTreasures, nHiddenTreasures, death, specificHiddenTreasures, specificVisibleTreasures)
       newLevelSpecificTreasures(text, level, nVisibleTreasures, nHiddenTreasures)
     end
     def substractVisibleTreasure(t)

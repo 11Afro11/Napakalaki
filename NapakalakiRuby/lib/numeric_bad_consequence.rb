@@ -7,8 +7,8 @@ module NapakalakiGame
   class NumericBadConsequence < BadConsequence
     attr_accessor :text, :levels, :nVisible, :nHidden
     
-    def initialize(text, levels = 0, nVisible = 0, nHidden = 0)
-        super(text, levels, nVisible, nHidden)
+    def initialize(text, levels ,nVisibleTreasures, nHiddenTreasures, death, specificHiddenTreasures, specificVisibleTreasures)
+        super(text, levels ,nVisibleTreasures, nHiddenTreasures, death, specificHiddenTreasures, specificVisibleTreasures)
         
     end
     def adjustToFitTreasureLists(vt, ht)
