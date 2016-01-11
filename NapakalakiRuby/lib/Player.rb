@@ -217,11 +217,11 @@ module NapakalakiGame
 	        	combatResult = CombatResult::WIN
 	      	end
 	    	else
-          if self.shoulConvert
+          if self.shouldConvert == true then
             combatResult = CombatResult::LOSEANDCONVERT
           else
 	      		combatResult = CombatResult::LOSE
-	      		amIdead = m.getBadConsequence().getDeath();
+	      		amIdead = m.getBadConsequence().getLevels() == 0;
 	      		if(amIdead)
 	        		@dead = true
 	      		else
@@ -335,12 +335,11 @@ module NapakalakiGame
     
     def shouldConvert
       dice = Dice.instance
-      
+      valor = false
       if dice.nextNumber == 0
-        return true
-      else
-        return false
+        valor = true
       end
+      return valor
     end
       
     def getOponentLevel(m)

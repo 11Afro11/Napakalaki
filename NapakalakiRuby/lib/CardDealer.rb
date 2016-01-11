@@ -66,11 +66,11 @@ module NapakalakiGame
 	def initMonsterCardDeck
      
         prize = Prize.new(2,1)
-        badConsequence = SpecificBadConsecuence.new("Pierdes tu armadura visible y otra oculta",  0,[TreasureKind::ARMOR],[TreasureKind::ARMOR])
+        badConsequence = SpecificBadConsequence.new("Pierdes tu armadura visible y otra oculta",  0,[TreasureKind::ARMOR],[TreasureKind::ARMOR])
         unused_monster<< Monster.new("Byakhees de bonanza", 8, prize, badConsequence, 0)
 
         prize = Prize.new(1,1)
-        badConsequence = SpecificBadConsecuence.new("Embobados con el lindo primigenio te descartas de tu casco visible", 0, [TreasureKind::ARMOR], [])
+        badConsequence = SpecificBadConsequence.new("Embobados con el lindo primigenio te descartas de tu casco visible", 0, [TreasureKind::ARMOR], [])
         unused_monster<< Monster.new("Chibithulhu", 2, prize, badConsequence, 0)
 
         prize = Prize.new(1,1)
@@ -211,7 +211,9 @@ module NapakalakiGame
 	def nextTreasure
       if @unused_treasures.nil?
         @used_treasures.each do |t|
-          @unused_treasures<<t
+          @unused_treasures<<tg
+          h
+          
         end
 
 	      shuffleTreasures
