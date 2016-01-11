@@ -5,38 +5,25 @@
 require_relative "BadConsequence.rb"
 module NapakalakiGame
   class SpecificBadConsecuence < BadConsequence
-    attr_accessor :text, :levels, :nVisible, :nHidden, :death, :specificHiddenTreasures, :specificVisibleTreasures
+    attr_accessor :specificHiddenTreasures, :specificVisibleTreasures
     
-    def initialize(text, levels ,nVisibleTreasures, nHiddenTreasures, death, specificHiddenTreasures, specificVisibleTreasures)
-      super(text, levels ,nVisibleTreasures, nHiddenTreasures, death, specificHiddenTreasures, specificVisibleTreasures)
-      newLevelSpecificTreasures(text, levels, nVisibleTreasures, nHiddenTreasures)
+    def initialize(text, levels ,specificHiddenTreasures, specificVisibleTreasures)
+      super(text, levels)
+      @specificHiddenTreasures = specificHiddenTreasures
+      @specificVisibleTreasures = specificVisibleTreasures
     end
     def substractVisibleTreasure(t)
-      @tVisibleTreasure.remove(t.getType)
+      @specificVisibleTreasure.remove(t.getType)
     end
     
     def substractHiddenTreasure(t)
-      @tHiddenTreasure.remove(t.getType)
+      @specificHiddenTreasure.remove(t.getType)
     end
     
     def adjustToFitTreasureLists(vt, ht)
-    	bd = BadConsequence.newLevelNumberOfTreasures("", 0,0,0)
-      if(@nHiddenTreasures != 0 || @nVisibleTreasures != 0)
-        if(vt.size() <= @nVisibleTreasures)
-          nv = vt.size()
-        
-        else
-          nv = @nVissibleTreasures
-        end
-        if(ht.size() <= @nHiddenTreasures)
-          nh = ht.size()
-        else
-          nh = @nHiddenTreasures
-        end
-        bd = BadConsequence.newLevelNumberOfTreasures(@text, @levels, nv, nh)
-      
+          
       else
-        if(!@tVisibleTreasure.nil? || !@tHiddenTreasure.nil?)
+        if(!@specificVisibleTreasure.nil? || !@specificHiddenTreasure.nil?)
           visible = vt & @specificVisibleTreasure
           hidden = ht & @specificHiddenTreasure
           bd = BadConsequence.newLevelNumberOfTreasures(@text, @levels, visible, hidden)
@@ -45,9 +32,17 @@ module NapakalakiGame
       return bd        
     end
     
+    def isEmpty
+      empty = false
+      if(@specificVisibleTreasures.empty? && @specificHiddenTreasures.empty?) then
+        empty = true
+      end
+      return empty
+    end
+    
     def to_s
       "#{@text}"
     end
     end
-  end
+
 

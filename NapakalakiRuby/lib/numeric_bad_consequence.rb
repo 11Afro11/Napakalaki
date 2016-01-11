@@ -5,37 +5,47 @@
 require_relative "BadConsequence.rb"
 module NapakalakiGame
   class NumericBadConsequence < BadConsequence
-    attr_accessor :text, :levels, :nVisible, :nHidden
+    attr_accessor :numericHiddenTreasures, :numericVisibleTreasures
     
-    def initialize(text, levels ,nVisibleTreasures, nHiddenTreasures, death, specificHiddenTreasures, specificVisibleTreasures)
-        super(text, levels ,nVisibleTreasures, nHiddenTreasures, death, specificHiddenTreasures, specificVisibleTreasures)
-        
+    def initialize(text, levels ,numericHiddenTreasures, numericVisibleTreasures)
+      super(text, levels)
+      @numericHiddenTreasures = numericHiddenTreasures
+      @numericVisibleTreasures = numericVisibleTreasures
     end
+    def substractVisibleTreasure(t)
+      @numericVisibleTreasure = @numericVisibleTreasures -1
+    end
+    
+    def substractHiddenTreasure(t)
+      @numericHiddenTreasure = @numericHiddenTreasures -1
+    end
+    
     def adjustToFitTreasureLists(vt, ht)
-    	bd = BadConsequence.newLevelNumberOfTreasures("", 0,0,0)
-      if(@nHiddenTreasures != 0 || @nVisibleTreasures != 0)
-        if(vt.size() <= @nVisibleTreasures)
-          nv = vt.size()
-        
-        else
-          nv = @nVissibleTreasures
+        if vt > numericVisibleTreasures then
+          nv = numericVisibleTreasures
+        else 
+          nv = vt
         end
-        if(ht.size() <= @nHiddenTreasures)
-          nh = ht.size()
+        if ht > numericHiddenTreasures then
+          nh = numericHiddenTreasures
         else
-          nh = @nHiddenTreasures
+          nh = ht
         end
         bd = BadConsequence.newLevelNumberOfTreasures(@text, @levels, nv, nh)
-      
-      else
-        if(!@tVisibleTreasure.nil? || !@tHiddenTreasure.nil?)
-          visible = vt & @specificVisibleTreasure
-          hidden = ht & @specificHiddenTreasure
-          bd = BadConsequence.newLevelNumberOfTreasures(@text, @levels, visible, hidden)
-        end
-      end
       return bd        
     end
+    
+    def isEmpty
+      empty = false
+      if(@numericVisibleTreasures == 0 && @numericHiddenTreasures == 0) then
+        empty = true
+      end
+      return empty
     end
-  end
+    
+    def to_s
+      "#{@text}"
+    end
+    end
+end
 
