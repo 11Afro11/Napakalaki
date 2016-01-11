@@ -8,7 +8,7 @@ require_relative 'BadConsequence.rb'
 require_relative 'numeric_bad_consequence.rb'
 
 class DeathBadConsequence < NumericBadConsequence
-  def initialize(text, death)
+  def initialize(text)
     super(text, 0 ,0,0)
     @death = death
   end

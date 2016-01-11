@@ -74,11 +74,11 @@ module NapakalakiGame
         unused_monster<< Monster.new("Chibithulhu", 2, prize, badConsequence, 0)
 
         prize = Prize.new(1,1)
-        badConsequence = SpecificBadConsecuence.new("El primordial bostezo contagioso. Pierdes el calzado visible", 0, [TreasureKind::SHOES], [])
+        badConsequence = SpecificBadConsequence.new("El primordial bostezo contagioso. Pierdes el calzado visible", 0, [TreasureKind::SHOES], [])
         unused_monster<< Monster.new("El sopor de Dunwich", 2, prize, badConsequence, 0)
 
         prize = Prize.new(4,1)
-        badConsequence = SpecificBadConsecuence.new("Te atrapan para llevarte de fiesta y te dejan caer en mitad del vuelo. Descarta 1 mano visible y 1 mano oculta", 0, [TreasureKind::ONEHAND], [TreasureKind::ONEHAND])
+        badConsequence = SpecificBadConsequence.new("Te atrapan para llevarte de fiesta y te dejan caer en mitad del vuelo. Descarta 1 mano visible y 1 mano oculta", 0, [TreasureKind::ONEHAND], [TreasureKind::ONEHAND])
         unused_monster<< Monster.new("Ángeles de la noche ibicenca", 14, prize, badConsequence, 0)
 
         prize = Prize.new(3,1)
@@ -86,11 +86,11 @@ module NapakalakiGame
         unused_monster<< Monster.new("El gorrón en el umbral", 10, prize, badConsequence, 0)
 
         prize = Prize.new(2,1)
-        badConsequence = SpecificBadConsecuence.new("Pierdes la armadura visible", 0, [TreasureKind::ARMOR], [])
+        badConsequence = SpecificBadConsequence.new("Pierdes la armadura visible", 0, [TreasureKind::ARMOR], [])
         unused_monster<< Monster.new("H.P. Munchcraft", 6 , prize, badConsequence, 0)
 
         prize = Prize.new(1,1)
-        badConsequence = SpecificBadConsecuence.new("Sientes bichos bajo la ropa. Descarta la armadura visible", 0, [TreasureKind::ARMOR], [])
+        badConsequence = SpecificBadConsequence.new("Sientes bichos bajo la ropa. Descarta la armadura visible", 0, [TreasureKind::ARMOR], [])
         unused_monster<< Monster.new("Bichgooth",2,prize,badConsequence, 0)
 
         price = Prize.new(4,2) 
@@ -102,12 +102,12 @@ module NapakalakiGame
         unused_monster<< Monster.new("La que redacta las tinieblas",2, prize, badConsequence, 0)
 
         prize = Prize.new(1,1)
-        badConsequence = SpecificBadConsecuence.new("Te faltan manos para tanta cabeza. Pierdes 3 niveles y tus tesoros visibles de las manos", 3, [TreasureKind::BOTHHANDS], [])
+        badConsequence = SpecificBadConsequence.new("Te faltan manos para tanta cabeza. Pierdes 3 niveles y tus tesoros visibles de las manos", 3, [TreasureKind::BOTHHANDS], [])
         unused_monster<< Monster.new("Bicéfalo", 20, prize, badConsequence, 0)
 
         #Los Hondos
         prize = Prize.new(2, 1)
-        badConsequence = DeathBadConsequence.new("Estos monstruos resultan bastante superficiales y te aburren mortalmente. Estas muerto", )
+        badConsequence = DeathBadConsequence.new("Estos monstruos resultan bastante superficiales y te aburren mortalmente. Estas muerto")
         unused_monster<< Monster.new("Los hondos", 8, prize, badConsequence, 0)
 
         #Semillas Cthulhu
@@ -117,7 +117,7 @@ module NapakalakiGame
 
         #Dameargo
         prize = Prize.new(2, 1)
-        badConsequence = SpecificBadConsecuence.new("Te intentas escaquear. Pierdes una mano visible", 0, [TreasureKind::ONEHAND], [])
+        badConsequence = SpecificBadConsequence.new("Te intentas escaquear. Pierdes una mano visible", 0, [TreasureKind::ONEHAND], [])
         unused_monster<< Monster.new("Dameargo", 1, prize, badConsequence, 0)
 
         #Pollipolipo Volante
@@ -142,7 +142,7 @@ module NapakalakiGame
 
         #El Espia
         prize = Prize.new(1, 1)
-        badConsequence = SpecificBadConsecuence.new("Te asusta en la noche. Pierdes un casco visible", 0, [TreasureKind::ONEHAND], [])
+        badConsequence = SpecificBadConsequence.new("Te asusta en la noche. Pierdes un casco visible", 0, [TreasureKind::ONEHAND], [])
         unused_monster<< Monster.new("El Espia", 5, prize, badConsequence, 0)
 
         #El Lenguas
@@ -157,7 +157,7 @@ module NapakalakiGame
         unused_monster << Monster.new("El mal indecible impronunciable", 10, prize, badConsequence, -2)
 
         prize = Prize.new(2, 1)
-        badConsequence = SpecificBadConsecuence.new("Pierdes tus tesoros visibles. Jajaja", 0, nil, 0)
+        badConsequence = SpecificBadConsequence.new("Pierdes tus tesoros visibles. Jajaja", 0, nil, 0)
         unused_monster << Monster.new("Testigos Oculares", 6, prize, badConsequence, +2)
 
         prize = Prize.new(2, 5)
@@ -169,7 +169,7 @@ module NapakalakiGame
         unused_monster << Monster.new("Serpiente Politico", 8, prize, badConsequence, -2)
 
         prize = Prize.new(1, 1)
-        badConsequence = SpecificBadConsecuence.new("Pierdes tu casco y tu armadura visible. Pierdes tus manos ocultas", 0, [TreasureKind::HELMET, TreasureKind::ARMOR], nil)
+        badConsequence = SpecificBadConsequence.new("Pierdes tu casco y tu armadura visible. Pierdes tus manos ocultas", 0, [TreasureKind::HELMET, TreasureKind::ARMOR], nil)
         unused_monster << Monster.new("Felpuggoth", 2, prize, badConsequence, +5)
 
         prize = Prize.new(4, 2)
