@@ -5,6 +5,7 @@
 require_relative "CardDealer.rb"
 require_relative "Player.rb"
 
+
 require "singleton"
 
 module NapakalakiGame
@@ -21,7 +22,7 @@ class Napakalaki
       @firstPlayer = true
       @currentPlayer = nil
       @currentMonster = Monster.new("", 0, Prize.new(0, 0),
-        BadConsequence.newLevelNumberOfTreasures("", 0, 0, 0), 0)
+        BadConsequence.numericBadConsequence("", 0, 0, 0), 0)
       @currentPlayerIndex = -1
     end
    

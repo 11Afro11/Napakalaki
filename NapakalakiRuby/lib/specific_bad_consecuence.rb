@@ -21,14 +21,11 @@ module NapakalakiGame
     end
     
     def adjustToFitTreasureLists(vt, ht)
-          
-      else
         if(!@specificVisibleTreasure.nil? || !@specificHiddenTreasure.nil?)
           visible = vt & @specificVisibleTreasure
           hidden = ht & @specificHiddenTreasure
           bd = BadConsequence.newLevelNumberOfTreasures(@text, @levels, visible, hidden)
         end
-      end
       return bd        
     end
     
@@ -44,5 +41,6 @@ module NapakalakiGame
       "#{@text}"
     end
     end
+end
 
 
