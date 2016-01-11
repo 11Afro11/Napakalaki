@@ -344,7 +344,7 @@ module NapakalakiGame
     end
       
     def getOponentLevel(m)
-      retun m.getCombatLevel
+      return m.getCombatLevel
     end
 
 		def to_s
