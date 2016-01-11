@@ -9,7 +9,7 @@ module NapakalakiGame
     
     def initialize(text, levels ,nVisibleTreasures, nHiddenTreasures, death, specificHiddenTreasures, specificVisibleTreasures)
       super.newLevelSpecificTreasures(text, levels, nVisibleTreasures, nHiddenTreasures, death, specificHiddenTreasures)
-      newLevelSpecificTreasures(text, level, visibleTreasures, hiddenTreasures)
+      newLevelSpecificTreasures(text, level, nVisibleTreasures, nHiddenTreasures)
     end
     def substractVisibleTreasure(t)
       @tVisibleTreasure.remove(t.getType)
