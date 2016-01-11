@@ -21,7 +21,7 @@ module NapakalakiGame
 			@enemy = nil
 			@hiddenTreasures =Array.new
 			@visibleTreasures = Array.new
-			@badStuff = BadConsequence.newLevelNumberOfTreasures("",0,0,0)
+			@badStuff = NumericBadConsequence.new("",0,0,0)
 	    	@@maxLevel = 10
 		end
 
