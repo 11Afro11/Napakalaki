@@ -12,6 +12,7 @@ module NapakalakiGame
       @specificHiddenTreasures = specificHiddenTreasures
       @specificVisibleTreasures = specificVisibleTreasures
     end
+    public_class_method :new
     def substractVisibleTreasure(t)
       @specificVisibleTreasure.remove(t.getType)
     end

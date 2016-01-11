@@ -12,6 +12,9 @@ module NapakalakiGame
       @numericHiddenTreasures = numericHiddenTreasures
       @numericVisibleTreasures = numericVisibleTreasures
     end
+    
+    public_class_method :new
+    
     def substractVisibleTreasure(t)
       @numericVisibleTreasure = @numericVisibleTreasures -1
     end

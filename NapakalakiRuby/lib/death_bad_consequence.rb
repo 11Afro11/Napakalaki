@@ -5,11 +5,10 @@
 require_relative "BadConsequence.rb"
 module NapakalakiGame
   class DeathBadConsequence < NumericBadConsequence
-    att_accessor :death
-  def initialize(text, levels ,nVisibleTreasures, nHiddenTreasures, death, specificHiddenTreasures, specificVisibleTreasures)
-    super(text, levels ,nVisibleTreasures, nHiddenTreasures, death, specificHiddenTreasures, specificVisibleTreasures)
-    newDeath(text,death)
-  end
+    def initialize(text)
+      super(text, 10)
+    end
+    public_class_method :new
     end
   end
 
