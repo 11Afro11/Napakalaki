@@ -2,12 +2,13 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
-module Napakalaki
+require_relative "BadConsequence.rb"
+module NapakalakiGame
   class DeathBadConsequence < NumericBadConsequence
-    def initialize
-      def DeathBadConsequence
+    att_accessor :death
+    def initialize(death = false)
         return super(@death)
       end
     end
   end
-end
+

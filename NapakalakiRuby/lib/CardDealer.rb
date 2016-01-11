@@ -7,7 +7,8 @@ require_relative "Prize.rb"
 require_relative "TreasureKind.rb"
 require_relative "BadConsequence.rb"
 require_relative "Monster.rb"
-require_relative "cultist"
+require_relative "cultist.rb"
+require_relative "specific_bad_consecuence.rb"
 
 module NapakalakiGame
 
@@ -63,7 +64,7 @@ module NapakalakiGame
 	def initMonsterCardDeck
      
         prize = Prize.new(2,1)
-        badConsequence = BadConsequence.newLevelSpecificTreasures("Pierdes tu armadura visible y otra oculta",  0,[TreasureKind::ARMOR],[TreasureKind::ARMOR])
+        badConsequence = SpecificBadConsecuence.new("Pierdes tu armadura visible y otra oculta",  0,[TreasureKind::ARMOR],[TreasureKind::ARMOR])
         unused_monster<< Monster.new("Byakhees de bonanza", 8, prize, badConsequence, 0)
 
         prize = Prize.new(1,1)

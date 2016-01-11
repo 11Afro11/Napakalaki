@@ -9,7 +9,7 @@ require_relative "TreasureKind.rb"
 require_relative "CombatResult.rb"
 require_relative "CardDealer.rb"
 
-module Napakalaki
+module NapakalakiGame
   
 
 class CultistPlayer < PLayer

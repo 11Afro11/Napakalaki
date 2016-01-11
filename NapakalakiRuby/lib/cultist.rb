@@ -2,7 +2,7 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
-module Napakalaki
+module NapakalakiGame
   class Cultist
     
     attr_reader :name, :gainedLevels

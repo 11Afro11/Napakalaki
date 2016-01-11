@@ -2,9 +2,15 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
-module Napakalaki
+require_relative "BadConsequence.rb"
+module NapakalakiGame
   class NumericBadConsequence < BadConsequence
-    def initialize
+    attr_accessor :text, :levels, :nVisible, :nHidden
+    
+    def initialize(text, levels = 0, nVisible = 0, nHidden = 0)
+        super(text, levels, nVisible, nHidden)
+        
+    end
     def adjustToFitTreasureLists(vt, ht)
     	bd = BadConsequence.newLevelNumberOfTreasures("", 0,0,0)
       if(@nHiddenTreasures != 0 || @nVisibleTreasures != 0)
@@ -32,4 +38,4 @@ module Napakalaki
     end
     end
   end
-end
+
