@@ -4,7 +4,7 @@
 
 require_relative "BadConsequence.rb"
 module NapakalakiGame
-  class DeathBadConsequence < NumericBadConsequence
+  class DeathBadConsequence < BadConsequence
     def initialize(text)
       super(text, 10)
     end

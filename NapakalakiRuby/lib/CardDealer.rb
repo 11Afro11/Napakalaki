@@ -107,7 +107,7 @@ module NapakalakiGame
 
         #Los Hondos
         prize = Prize.new(2, 1)
-        badConsequence = DeathBadConsequence.new("Estos monstruos resultan bastante superficiales y te aburren mortalmente. Estas muerto")
+        badConsequence = DeathBadConsequence.new("Estos monstruos resultan bastante superficiales y te aburren mortalmente. Estas muerto", )
         unused_monster<< Monster.new("Los hondos", 8, prize, badConsequence, 0)
 
         #Semillas Cthulhu
@@ -161,7 +161,7 @@ module NapakalakiGame
         unused_monster << Monster.new("Testigos Oculares", 6, prize, badConsequence, +2)
 
         prize = Prize.new(2, 5)
-        badConsequence = DeathBadConsecuence.new("Hoy no es tu dia de suerte. Mueres")
+        badConsequence = DeathBadConsequence.new("Hoy no es tu dia de suerte. Mueres")
         unused_monster << Monster.new("El gran Cthulhu", 20, prize, badConsequence, +4)
 
         prize = Prize.new(2, 1)
@@ -200,7 +200,7 @@ module NapakalakiGame
 
 	end
   
-  def suffleCultist
+  def shuffleCultist
     @unused_cultist = @unused_cultist.shuffle
   end
 
