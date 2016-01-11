@@ -5,7 +5,7 @@
 module Napakalaki
   class NumericBadConsequence < BadConsequence
     def initialize
-           def adjustToFitTreasureLists(vt, ht)
+    def adjustToFitTreasureLists(vt, ht)
     	bd = BadConsequence.newLevelNumberOfTreasures("", 0,0,0)
       if(@nHiddenTreasures != 0 || @nVisibleTreasures != 0)
         if(vt.size() <= @nVisibleTreasures)
