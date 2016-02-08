@@ -10,18 +10,32 @@ package GUI;
  *
  * @author david
  */
-import Napakalaki.Treasure;
+import NapakalakiGame.Treasure;
+import NapakalakiGame.TreasureKind;
+
+
 public class TreasureView extends javax.swing.JPanel {
+    
+    	private String name;
+	private int bonus;
+	private TreasureKind type;
+        
+        Treasure aTreasure;
     
     private Treasure treasureModel;
     
+    public Treasure getTreasure(){
+        return this.treasureModel;
+    }
+    
     public void setTreasure(Treasure t){
-     treasureModel = t;
-     String name = treasureModel.getName();
-     
-     String bonus = treasureModel.getBonus();
-     
-     String type = treasureModel.getType();
+                
+        treasureModel = aTreasure;
+        
+        this.name.setText(treasureModel.getName());
+        this.bonus.setText(treasureModel.getBonus());
+        this.type.setText(treasureModel.setType());
+        
     }
 
     /**
