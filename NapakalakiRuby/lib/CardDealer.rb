@@ -11,6 +11,7 @@ require_relative "cultist.rb"
 require_relative "specific_bad_consecuence.rb"
 require_relative "death_bad_consequence.rb"
 require_relative "numeric_bad_consequence.rb"
+require_relative "numeric_visible_and_specific_hidden_bad_consequence.rb"
 
 module NapakalakiGame
 
@@ -179,6 +180,19 @@ module NapakalakiGame
         prize = Prize.new(1, 1)
         badConsequence = NumericBadConsequence.new("Pintalabios negro. Pierdes 2 niveles", 2, 0, 0)
         unused_monster << Monster.new("Lolitagooth", 2, prize, badConsequence, +3)
+        
+        #EXAMEN
+        prize = Prize.new(2, 1)
+        badConsequence = NumericVisibleAndSpecificHiddenBadConsequence.new("Pierdes 2 tesoros visibles y una armadura oculta", 0, 2, [TreasureKind::ARMOR])
+        unused_monster << Monster.new("Franky", 7, prize, badConsequence, 0)
+        
+        prize = Prize.new(1, 2)
+        badConsequence = NumericVisibleAndSpecificHiddenBadConsequence.new("Pierdes todos los tesoros visibles mas un clazado y una mano oculta", 0, 6, [TreasureKind::SHOES, TreasureKind::ONEHAND])
+        unused_monster << Monster.new("Massi", 12, prize, badConsequence, 0)
+        
+        prize = Prize.new(2,1)
+        badConsequence = NumericVisibleAndSpecificHiddenBadConsequence.new("Pierdes un tesoro visible y un casco oculto", 0, 1, [TreasureKind::HELMET])
+        unused_monster << Monster.new("Hully", 2, prize, badConsequence, 0)
 	end
 
 	def shuffleTreasures

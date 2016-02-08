@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package NapakalakiGame;
+import GUI.Dice;
 import java.util.ArrayList;
 import NapakalakiGame.BadConsequence;
 import NapakalakiGame.CombatResult;
