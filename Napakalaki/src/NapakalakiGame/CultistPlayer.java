@@ -45,7 +45,7 @@ public class CultistPlayer extends Player{
         return m.getCombatLevelAgainstCultist();
     }
     @Override
-    protected Player getEnemy(){
+    public Player getEnemy(){
         return super.getEnemy();
     }
     

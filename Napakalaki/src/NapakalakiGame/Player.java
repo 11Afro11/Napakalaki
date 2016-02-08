@@ -44,6 +44,7 @@ public class Player {
     public String getName(){
     	return name;
     }
+    
 
     private void bringToLife(){
     	dead = false;
@@ -333,7 +334,7 @@ public class Player {
         }
     } 
     
-    protected Player getEnemy(){
+    public Player getEnemy(){
         return enemy;
     }
 }
