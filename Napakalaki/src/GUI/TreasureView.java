@@ -36,6 +36,8 @@ public class TreasureView extends javax.swing.JPanel {
         this.bonus.setText(treasureModel.getBonus());
         this.type.setText(treasureModel.setType());
         
+        repaint();
+        
     }
 
     /**
