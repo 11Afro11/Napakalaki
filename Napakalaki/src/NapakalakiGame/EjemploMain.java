@@ -18,12 +18,12 @@ public class EjemploMain {
       ArrayList<String> names = new ArrayList<String>();
       NapakalakiView napakalakiView = new NapakalakiView();
       Dice.createInstance(napakalakiView);
-      napakalakiView.setNapakalaki(game);
+      
       
       PlayerNamesCapture namesCapture = new PlayerNamesCapture(napakalakiView, true);
       names = namesCapture.getNames();
       game.initGame(names);
-      
+      napakalakiView.setNapakalaki(game);
       napakalakiView.setVisible(true);
       
 //      GameTester test = GameTester.getInstance();

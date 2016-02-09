@@ -16,6 +16,7 @@ import NapakalakiGame.Treasure;
 public class TreasureView extends javax.swing.JPanel {
     
     private Treasure treasureModel;
+    private boolean selected = false;
     
     
     public TreasureView(){
@@ -24,6 +25,10 @@ public class TreasureView extends javax.swing.JPanel {
     
     public Treasure getTreasure(){
         return this.treasureModel;
+    }
+    
+    public boolean isSelected(){
+        return selected;
     }
     
     public void setTreasure(Treasure t){
@@ -35,6 +40,7 @@ public class TreasureView extends javax.swing.JPanel {
         repaint();
         
     }
+   
 
     /**
      * Creates new form TreasureView
@@ -57,6 +63,12 @@ public class TreasureView extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
         name.setText("Nombre: ");
 
@@ -105,6 +117,16 @@ public class TreasureView extends javax.swing.JPanel {
                 .addContainerGap(118, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        // TODO add your handling code here:
+        if(selected == true){
+            selected = false;
+        }
+        if(selected == false){
+            selected = true;
+        }
+    }//GEN-LAST:event_formMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
