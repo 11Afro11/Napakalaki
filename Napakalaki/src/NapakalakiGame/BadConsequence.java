@@ -38,6 +38,7 @@ public abstract class BadConsequence {
         specificHiddenTreasure = tHidden;
     }
     
+    
     public void setText(String text) {
         this.text = text;
     }
