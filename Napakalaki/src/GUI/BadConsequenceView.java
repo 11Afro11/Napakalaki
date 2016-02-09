@@ -54,7 +54,7 @@ public class BadConsequenceView extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         nVisibleTreasures = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        specificHiddenTreasures = new javax.swing.JPanel();
+        specificHiddenTreasure = new javax.swing.JPanel();
         specificVisibleTreasure = new javax.swing.JPanel();
         text = new javax.swing.JLabel();
         levels = new javax.swing.JLabel();
@@ -113,7 +113,7 @@ public class BadConsequenceView extends javax.swing.JPanel {
 
         jLabel4.setText("specificVisibleTreasure:");
 
-        specificHiddenTreasures.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        specificHiddenTreasure.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         specificVisibleTreasure.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -181,7 +181,7 @@ public class BadConsequenceView extends javax.swing.JPanel {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(nHiddenTreasures, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(specificHiddenTreasures, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(specificHiddenTreasure, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addContainerGap(35, Short.MAX_VALUE))))
@@ -206,7 +206,7 @@ public class BadConsequenceView extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(specificHiddenTreasures, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(specificHiddenTreasure, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -234,7 +234,7 @@ public class BadConsequenceView extends javax.swing.JPanel {
     private javax.swing.JLabel levels;
     private javax.swing.JPanel nHiddenTreasures;
     private javax.swing.JPanel nVisibleTreasures;
-    private javax.swing.JPanel specificHiddenTreasures;
+    private javax.swing.JPanel specificHiddenTreasure;
     private javax.swing.JPanel specificVisibleTreasure;
     private javax.swing.JLabel text;
     // End of variables declaration//GEN-END:variables
