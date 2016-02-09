@@ -22,7 +22,7 @@ import NapakalakiGame.BadConsequence;
 public class PlayerView extends javax.swing.JPanel {
     
     private Player playerModel;
-    private Napakalaki napakalakyModel;
+    private Napakalaki napakalakiModel;
     
     /**
      * Creates new form PlayerView
@@ -71,7 +71,7 @@ public class PlayerView extends javax.swing.JPanel {
     }
     
     public void setNapakalaki(Napakalaki n){
-        this.napakalakyModel = n;
+        this.napakalakiModel = n;
     }
     
     
@@ -129,8 +129,18 @@ public class PlayerView extends javax.swing.JPanel {
         jLabel4.setText("Nombre de Enemigo");
 
         stealTreasure.setText("Steal Treasure");
+        stealTreasure.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stealTreasureActionPerformed(evt);
+            }
+        });
 
         makeVisible.setText("Make Visible");
+        makeVisible.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                makeVisibleActionPerformed(evt);
+            }
+        });
 
         discardTreasures.setText("Discard Treasures");
 
@@ -262,6 +272,18 @@ public class PlayerView extends javax.swing.JPanel {
                 .addGap(24, 24, 24))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void makeVisibleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_makeVisibleActionPerformed
+        // TODO add your handling code here:
+        ArrayList<Treasure> selHidden = getSelectedTreasures(hiddenTreasures);
+        napakalakiModel.makeTreasuresVisibles(selHidden);
+        setPlayer(napakalakiModel.getCurrentPlayer());
+    }//GEN-LAST:event_makeVisibleActionPerformed
+
+    private void stealTreasureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stealTreasureActionPerformed
+        // TODO add your handling code here:
+        setPlayer(napakalakiModel.stealTreasure());
+    }//GEN-LAST:event_stealTreasureActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
