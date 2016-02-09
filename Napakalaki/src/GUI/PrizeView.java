@@ -30,6 +30,7 @@ public class PrizeView extends javax.swing.JPanel {
         prizeModel = p;
         treasures.setText(Integer.toString(this.prizeModel.getTreasures()));
         levels.setText(Integer.toString(this.prizeModel.getLevels()));
+        repaint();
         
     }
 
