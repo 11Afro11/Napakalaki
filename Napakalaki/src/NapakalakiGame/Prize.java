@@ -27,11 +27,11 @@ public class Prize {
     }
     
     
-    int getTreasures(){
+    public int getTreasures(){
         return treasures;
     }
     
-    int getLevels(){
+    public int getLevels(){
         return levels;
     }
     

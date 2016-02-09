@@ -5,17 +5,32 @@
  */
 package GUI;
 
+import NapakalakiGame.Prize;
+
 /**
  *
  * @author david
  */
 public class PrizeView extends javax.swing.JPanel {
-
+    
+    
+    private Prize prizeModel;
+    
+    public Prize getTreasures(){
+        return this.prizeModel;
+    } 
     /**
      * Creates new form PrizeView
      */
     public PrizeView() {
         initComponents();
+    }
+    
+    public void setPrize(Prize p){
+        prizeModel = p;
+        treasures.setText(this.prizeModel.getTreasures());
+        levels.setText(this.prizeModel.getLevels());
+        
     }
 
     /**
@@ -27,19 +42,38 @@ public class PrizeView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Tesoros = treasures.setText(this.prizeModel.getTreasures());
+        jTextField2 = new javax.swing.JTextField();
+
+        Tesoros.setText("jTextField1");
+
+        jTextField2.setText("jTextField2");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Tesoros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(280, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(Tesoros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(197, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Tesoros;
+    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }
