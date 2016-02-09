@@ -26,9 +26,10 @@ public class MonsterView extends javax.swing.JPanel {
         
         name.setText(this.monsterModel.getName());
         combatLevel.setText(Integer.toString(this.monsterModel.getCombatLevel()));
-        prize.setText(this.monsterModel.getPrice());
-        bc.setText(this.monsterModel.getBc());
         levelChangeAgainstCultistPlayer.setText(Integer.toString(this.monsterModel.getCombatLevelAgainstCultist()));
+        
+        this.badConsequenceView1.setBadConsequence(monsterModel.getBc());
+        this.prizeView2.setPrize(monsterModel.getPrice());
         
         repaint();
     }
@@ -42,16 +43,20 @@ public class MonsterView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        prizeView1 = new GUI.PrizeView();
+        jRadioButton1 = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
         name = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         combatLevel = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        prize = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        bc = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         levelChangeAgainstCultistPlayer = new javax.swing.JLabel();
+        prizeView2 = new GUI.PrizeView();
+        badConsequenceView1 = new GUI.BadConsequenceView();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+
+        jRadioButton1.setText("jRadioButton1");
 
         jLabel1.setText("Nombre");
 
@@ -61,51 +66,53 @@ public class MonsterView extends javax.swing.JPanel {
 
         combatLevel.setText("jLabel3");
 
-        jLabel3.setText("Premio");
-
-        prize.setText("jLabel4");
-
-        jLabel4.setText("Mal Rollo: ");
-
-        bc.setText("jLabel5");
-
         jLabel5.setText("Nivel Contra Cultist: ");
 
         levelChangeAgainstCultistPlayer.setText("jLabel6");
+
+        prizeView2.setBorder(new javax.swing.border.MatteBorder(null));
+
+        badConsequenceView1.setBorder(new javax.swing.border.MatteBorder(null));
+
+        jLabel6.setText("Bad Consequence");
+
+        jLabel7.setText("Prize");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(54, 54, 54)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
-                        .addComponent(levelChangeAgainstCultistPlayer))
+                        .addGap(20, 20, 20)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(badConsequenceView1, javax.swing.GroupLayout.PREFERRED_SIZE, 585, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(223, 223, 223)
+                                .addComponent(jLabel7))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(prizeView2, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bc))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(name))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(combatLevel))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(prize)))
-                .addGap(91, 91, 91))
+                        .addGap(333, 333, 333)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel5))
+                        .addGap(138, 138, 138)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(levelChangeAgainstCultistPlayer)
+                            .addComponent(combatLevel)
+                            .addComponent(name))))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(70, 70, 70)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(name))
@@ -115,31 +122,33 @@ public class MonsterView extends javax.swing.JPanel {
                     .addComponent(combatLevel))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(prize))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(bc))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(levelChangeAgainstCultistPlayer))
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(prizeView2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(badConsequenceView1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(69, 69, 69))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel bc;
+    private GUI.BadConsequenceView badConsequenceView1;
     private javax.swing.JLabel combatLevel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JLabel levelChangeAgainstCultistPlayer;
     private javax.swing.JLabel name;
-    private javax.swing.JLabel prize;
+    private GUI.PrizeView prizeView1;
+    private GUI.PrizeView prizeView2;
     // End of variables declaration//GEN-END:variables
 }
