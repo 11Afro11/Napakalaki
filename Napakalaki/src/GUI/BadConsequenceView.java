@@ -25,16 +25,17 @@ public class BadConsequenceView extends javax.swing.JPanel {
         
         text.setText(this.badConsequenceModel.getText());
         levels.setText(Integer.toString(this.badConsequenceModel.getLevels()));
-        specificHiddenTreasure.setText(this.badConsequenceModel.getSpecificHiddenTreasures());
-        specificVisibleTreasure.setText(this.badConsequenceModel.getSpecificVisibleTreasures());
-        nVisibleTreasures.setText(Integer.toString(this.badConsequenceModel.getVisibleTreasures()));
-        nHiddenTreasures.setText(Integer.toString(this.badConsequenceModel.getHiddenTreasures()));
         if(this.badConsequenceModel.getDeath()){
             death.setText("Yes");
         }
         else{
             death.setText("No");
         }
+        this.fillnVisibleTreasures(nVisibleTreasures, badConsequenceModel.getVisibleTreasures());
+
+        repaint();
+        revalidate();
+
         
     }
 
