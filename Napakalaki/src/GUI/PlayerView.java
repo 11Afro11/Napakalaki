@@ -143,8 +143,18 @@ public class PlayerView extends javax.swing.JPanel {
         });
 
         discardTreasures.setText("Discard Treasures");
+        discardTreasures.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                discardTreasuresActionPerformed(evt);
+            }
+        });
 
         discardAllTreasures.setText("Discard All Treasures");
+        discardAllTreasures.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                discardAllTreasuresActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Tesoros visibles");
 
@@ -282,8 +292,31 @@ public class PlayerView extends javax.swing.JPanel {
 
     private void stealTreasureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stealTreasureActionPerformed
         // TODO add your handling code here:
-        setPlayer(napakalakiModel.stealTreasure());
+        napakalakiModel.getCurrentPlayer().stealTreasure();
+        setPlayer(napakalakiModel.getCurrentPlayer());
+        repaint();
     }//GEN-LAST:event_stealTreasureActionPerformed
+
+    private void discardTreasuresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discardTreasuresActionPerformed
+        // TODO add your handling code here:
+        ArrayList<Treasure> selVisible = getSelectedTreasures(visibleTreasures);
+        ArrayList<Treasure> selHidden = getSelectedTreasures(hiddenTreasures);
+        for(Treasure t:selHidden){
+            this.playerModel.discardHiddenTreasure(t);
+        }
+        for(Treasure t:selVisible){
+            this.playerModel.discardVisibleTreasure(t);
+        }
+        this.setPlayer(napakalakiModel.getCurrentPlayer());
+        repaint();
+    }//GEN-LAST:event_discardTreasuresActionPerformed
+
+    private void discardAllTreasuresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discardAllTreasuresActionPerformed
+        // TODO add your handling code here:
+        napakalakiModel.getCurrentPlayer().discardAllTreasures();
+        setPlayer(napakalakiModel.getCurrentPlayer());
+        repaint();
+    }//GEN-LAST:event_discardAllTreasuresActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
