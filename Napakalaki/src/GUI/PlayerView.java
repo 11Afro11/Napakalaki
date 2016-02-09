@@ -22,6 +22,7 @@ import NapakalakiGame.BadConsequence;
 public class PlayerView extends javax.swing.JPanel {
     
     private Player playerModel;
+    private Napakalaki napakalakyModel;
     
     /**
      * Creates new form PlayerView
@@ -67,6 +68,27 @@ public class PlayerView extends javax.swing.JPanel {
         this.fillTreasurePanel(hiddenTreasures,playerModel.getHiddenTreasures());
         repaint();
         revalidate();
+    }
+    
+    public void setNapakalaki(Napakalaki n){
+        this.napakalakyModel = n;
+    }
+    
+    
+    public ArrayList<Treasure> getSelectedTreasures(JPanel aPanel){
+        // Se recorren los tesoros que contiene el panel,
+        // almacenando en un vector aquellosque están seleccionados.
+        // Finalmente se devuelve dicho vector
+        
+        TreasureView tv;
+        ArrayList<Treasure> output = new ArrayList();
+        for(Component c:aPanel.getComponents()){
+            tv = (TreasureView)c;
+            if(tv.isSelected())
+                output.add(tv.getTreasure());
+        }
+        
+        return output;
     }
 
     /**

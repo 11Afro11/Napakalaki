@@ -126,6 +126,7 @@ public class TreasureView extends javax.swing.JPanel {
         if(selected == false){
             selected = true;
         }
+        setOpaque(selected);
     }//GEN-LAST:event_formMouseClicked
 
 
