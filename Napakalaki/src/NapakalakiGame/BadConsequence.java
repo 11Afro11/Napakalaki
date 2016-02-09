@@ -66,35 +66,35 @@ public abstract class BadConsequence {
         this.specificVisibleTreasure = specificVisibleTreasure;
     }
        
-    String getText(){
+    public String getText(){
         return text;
     }
     
-    ArrayList<TreasureKind> getSpecificHiddenTreasures(){
+    public ArrayList<TreasureKind> getSpecificHiddenTreasures(){
         return specificHiddenTreasure;
     }
     
-    ArrayList<TreasureKind> getSpecificVisibleTreasures(){
+    public ArrayList<TreasureKind> getSpecificVisibleTreasures(){
         return specificVisibleTreasure;
     }
     
-    int getLevels(){
+    public int getLevels(){
         return levels;
     }
     
-    int getVisibleTreasures(){
+    public int getVisibleTreasures(){
         return nVisibleTreasures;
     }
     
-    int getHiddenTreasures(){
+    public int getHiddenTreasures(){
         return nHiddenTeasures;
     }
     
-    boolean getDeath(){
+    public boolean getDeath(){
         return death;
     }
     
-    boolean isEmpty(){
+    public boolean isEmpty(){
         if(nHiddenTeasures == 0 && nVisibleTreasures == 0 && specificHiddenTreasure.isEmpty() && specificVisibleTreasure.isEmpty()){
             return true;
         }
