@@ -38,6 +38,16 @@ public class BadConsequenceView extends javax.swing.JPanel {
         
         BCvisibleTreasures.setText("Tesoros totales: " +Integer.toString(this.badConsequenceModel.getVisibleTreasures()));
         BCHiddenTreasures.setText("Tesoros totales: " + Integer.toString(this.badConsequenceModel.getHiddenTreasures()));
+        
+        for(TreasureKind t : this.badConsequenceModel.getSpecificVisibleTreasures()){
+            BCvisibleTreasures.append(t+"");
+        }
+        
+        for(TreasureKind t : this.badConsequenceModel.getSpecificHiddenTreasures()){
+            BCvisibleTreasures.append(t+"");
+        }
+        
+        
  
 
 
