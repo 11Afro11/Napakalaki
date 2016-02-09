@@ -11,6 +11,7 @@ package GUI;
  * @author david
  */
 import NapakalakiGame.Treasure;
+import java.awt.Color;
 
 
 public class TreasureView extends javax.swing.JPanel {
@@ -97,7 +98,7 @@ public class TreasureView extends javax.swing.JPanel {
                     .addComponent(name, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
                     .addComponent(bonus)
                     .addComponent(tipo))
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -114,19 +115,22 @@ public class TreasureView extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addContainerGap(118, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
         // TODO add your handling code here:
+        
         if(selected == true){
             selected = false;
         }
         if(selected == false){
             selected = true;
+            this.setBackground(Color.yellow);
         }
         setOpaque(selected);
+        repaint();
     }//GEN-LAST:event_formMouseClicked
 
 
