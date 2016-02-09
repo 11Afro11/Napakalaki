@@ -105,8 +105,14 @@ public class Player {
         return badStuff.isEmpty() && hiddenTreasures.size() <= 4;
     }
 
-    private int howManyVissibleTreasures(){
-        return visibleTreasures.size();
+    private int howManyVisibleTreasures(TreasureKind t){
+        int j = 0;
+        for(int i = 0; i < visibleTreasures.size();i++){
+            if(visibleTreasures.get(i).getType() == t){
+                j = j + 1;
+            }
+        }
+        return j;
     }
 
     public void setEnemy(Player enemy){
@@ -122,43 +128,45 @@ public class Player {
         return !hiddenTreasures.isEmpty() || !visibleTreasures.isEmpty();
     }
 
-    private boolean canMakeTreasureVisible(Treasure t){
-        boolean result = false;
- 
-        if (this.visibleTreasures.size() < 4) {
-            TreasureKind type = t.getType();
-            switch (type) {
- 
-                case ONEHAND:
- 
-                    if (isTreasureKindInUse(TreasureKind.BOTHHANDS)) {
-                        result = false;
-                    } else {
- 
-                        int i = 0;
-                        for (Treasure tv : this.visibleTreasures) {
-                            if (tv.getType().equals(TreasureKind.ONEHAND)) {
-                                i++;
-                            }
-                        }
- 
-                        if (i == 2) {
-                            result = false;
-                        } else {
-                            result = true;
+    public boolean canMakeTreasureVisible(Treasure t){
+        boolean can = true;
+        //Primero comprobar que segun el tipo no tenemos nada equipado que nos
+        //impida usar el objeto
+        TreasureKind k = t.getType();
+        if(k == TreasureKind.ARMOR){
+            if(this.howManyVisibleTreasures(TreasureKind.ARMOR) >= 1){
+                can = false;
+            }
+        }
+        else{
+            if(k == TreasureKind.BOTHHANDS){
+                if(this.howManyVisibleTreasures(k) >= 1 || this.howManyVisibleTreasures(TreasureKind.ONEHAND) >=1){
+                    can = false;
+                }
+            }
+            else{
+                if(k == TreasureKind.HELMET ){
+                    if(this.howManyVisibleTreasures(k) >= 1){
+                        can = false;
+                    }
+                }
+                else{
+                    if(k == TreasureKind.ONEHAND){
+                        if(this.howManyVisibleTreasures(k) >= 2){
+                            can = false;
                         }
                     }
-                    break;
- 
-                default:
-                    result = !isTreasureKindInUse(type);
-                    break;
- 
+                    else{
+                        if(k == TreasureKind.SHOES){
+                            if(this.howManyVisibleTreasures(k) >= 1){
+                                can = false;
+                            }
+                        }
+                    }
+                }
             }
- 
         }
- 
-        return result;
+        return can;
     }
     
     private boolean isTreasureKindInUse(TreasureKind type) {

@@ -288,6 +288,7 @@ public class PlayerView extends javax.swing.JPanel {
         ArrayList<Treasure> selHidden = getSelectedTreasures(hiddenTreasures);
         napakalakiModel.makeTreasuresVisibles(selHidden);
         setPlayer(napakalakiModel.getCurrentPlayer());
+        repaint();
     }//GEN-LAST:event_makeVisibleActionPerformed
 
     private void stealTreasureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stealTreasureActionPerformed
