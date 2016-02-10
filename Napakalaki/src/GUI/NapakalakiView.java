@@ -24,8 +24,9 @@ public class NapakalakiView extends javax.swing.JFrame {
     public void setNapakalaki(Napakalaki n){
         this.napakalakiModel = n;
         this.monsterView1.setMonster(napakalakiModel.getCurrentMonster());
-        this.monsterView1.setMonster(napakalakiModel.getCurrentMonster());
-        this.playerView1.setPlayer(napakalakiModel.getCurrentPlayer());        
+        this.monsterView1.setVisible(false);
+        this.playerView1.setPlayer(napakalakiModel.getCurrentPlayer()); 
+        this.playerView1.setNapakalaki(n);
     }
 
     /**
@@ -39,9 +40,9 @@ public class NapakalakiView extends javax.swing.JFrame {
 
         monsterView1 = new GUI.MonsterView();
         playerView1 = new GUI.PlayerView();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        MeetTheMonster = new javax.swing.JButton();
+        Combat = new javax.swing.JButton();
+        NextTurn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,24 +50,24 @@ public class NapakalakiView extends javax.swing.JFrame {
 
         playerView1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jButton1.setText("Meet the Monster");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        MeetTheMonster.setText("Meet the Monster");
+        MeetTheMonster.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                MeetTheMonsterActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Combat");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        Combat.setText("Combat");
+        Combat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                CombatActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Next Turn");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        NextTurn.setText("Next Turn");
+        NextTurn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                NextTurnActionPerformed(evt);
             }
         });
 
@@ -82,11 +83,11 @@ public class NapakalakiView extends javax.swing.JFrame {
                 .addGap(33, 33, 33))
             .addGroup(layout.createSequentialGroup()
                 .addGap(125, 125, 125)
-                .addComponent(jButton1)
+                .addComponent(MeetTheMonster)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(Combat)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(NextTurn)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -98,32 +99,41 @@ public class NapakalakiView extends javax.swing.JFrame {
                     .addComponent(monsterView1, javax.swing.GroupLayout.PREFERRED_SIZE, 674, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(MeetTheMonster)
+                    .addComponent(Combat)
+                    .addComponent(NextTurn))
                 .addContainerGap(45, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void MeetTheMonsterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MeetTheMonsterActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        monsterView1.setVisible(true);
+        repaint();
+    }//GEN-LAST:event_MeetTheMonsterActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void CombatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CombatActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        Combat.setSelected(false);
+        napakalakiModel.developCombat();
+        Combat.setEnabled(false);
+        repaint();
+    }//GEN-LAST:event_CombatActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void NextTurnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextTurnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+        napakalakiModel.nextTurn();
+        this.setNapakalaki(napakalakiModel);
+        NextTurn.setSelected(false);
+    }//GEN-LAST:event_NextTurnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton Combat;
+    private javax.swing.JButton MeetTheMonster;
+    private javax.swing.JButton NextTurn;
     private GUI.MonsterView monsterView1;
     private GUI.PlayerView playerView1;
     // End of variables declaration//GEN-END:variables
